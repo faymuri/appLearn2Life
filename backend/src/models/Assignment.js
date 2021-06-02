@@ -12,6 +12,15 @@ const AssignmentSchema = new Schema({
         required: true
     }
 
+//   Files: {
+//       type: String
+//   },
+//
+//   idCourse: {
+//       
+//       type: int
+//    }
+
 }, {
     timestamps: true
 });

@@ -2,6 +2,9 @@ const express = require('express');
 const expresshbs = require('express-handlebars');
 const path = require('path');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
+const flash = require('connect-flash');
+const session = require('express-session');
 
 
 // Initialization
@@ -25,6 +28,13 @@ app.set('view engine', '.hbs');
 
 app.use(morgan('dev'));
 app.use(express.urlencoded({extended: false}));
+app.use(methodOverride('_method'));
+app.use(session({
+    secret: 'secret',
+    resave: true,
+    saveUninitialized: true
+}));
+app.use(flash());
 
 
 // Global Variables
@@ -34,6 +44,8 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/assignments.routes'));
+app.use(require('./routes/users.routes'));
+
 
 // Static files
 
