@@ -1,9 +1,17 @@
 const {Router} = require('express');
 const router = Router();
 
-const {renderRegisterForm, } = require('../controllers/users.controllers');
+const {renderSignupForm, signup, renderSigninForm, signin, logout } = require('../controllers/users.controllers');
 
-router.get('/users/register', renderRegisterForm)
+router.get('/users/signup', renderSignupForm);
+
+router.post('/users/signup', signup);
+
+router.get('/users/signin', renderSigninForm);
+
+router.post('/users/signin', signin);
+
+router.get('/users/logout', logout);
 
 
 module.exports = router;

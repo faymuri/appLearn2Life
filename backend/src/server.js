@@ -39,6 +39,10 @@ app.use(flash());
 
 // Global Variables
 
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    next();
+});
 
 // Routes
 
