@@ -5,6 +5,7 @@ const MONGODB_URI = `mongodb://${LEARN2LIFE_APP_MONGODB_HOST}/${LEARN2LIFE_APP_M
 
 mongoose.connect(MONGODB_URI,{
     useUnifiedTopology: true,
+    useCreateIndex: true,
     useNewUrlParser: true
 })
     .then(db => console.log('Database is connected'))

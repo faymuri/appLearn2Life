@@ -2,7 +2,8 @@ const assignmentsCtrl = {};
 
 const Assignment = require('../models/Assignment');
 
-assignmentsCtrl.renderAssignmentForm = (req, res) => {
+
+assignmentsCtrl.renderAssignmentForm =  (req, res) => {
     res.render('assignments/new-assignment');
 };
 
