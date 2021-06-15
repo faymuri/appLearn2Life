@@ -26,7 +26,7 @@ usersCtrl.signup = async (req, res) => {
             name
         });
     } else {
-        const emailUser = await User.findOne({email: email});
+        const emailUser = await User.findOne({email: email}).lean();
         if (emailUser) {
             req.flash('error_msg', 'El email ingresado ya esta en uso');
             res.redirect('/users/signup');
