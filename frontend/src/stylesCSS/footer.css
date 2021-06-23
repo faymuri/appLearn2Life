@@ -1,0 +1,13 @@
+footer{
+    width: 100%;
+    
+}
+
+.container-about{
+    min-height: calc(100vh - 100px - 300px);
+}
+
+.footer-logo{
+    height: 70px;
+    width: 100px;
+}
