@@ -13,7 +13,7 @@ assignmentsCtrl.createNewAssignment = async (req, res) => {
     newAssignment.user = req.user.id;
     await newAssignment.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/api/assignments');
 };
 
 assignmentsCtrl.renderAssignments = async (req, res) => {
@@ -34,13 +34,13 @@ assignmentsCtrl.updateAssignment = async (req, res) => {
     const { title, description } = req.body;
     await Assignment.findByIdAndUpdate(req.params.id, {title, description}).lean();
     req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/api/assignments');
 };
 
 assignmentsCtrl.deleteAssignment = async (req, res) => {
     await Assignment.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/api/assignments');
 };
 
 module.exports = assignmentsCtrl;

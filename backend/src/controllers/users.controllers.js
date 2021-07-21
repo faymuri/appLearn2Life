@@ -45,8 +45,8 @@ usersCtrl.renderSigninForm = (req, res) => {
 };
 
 usersCtrl.signin = passport.authenticate('login', {
-    failureRedirect: '/users/signin',
-    successRedirect: '/assignments',
+    failureRedirect: '/api/users/signin',
+    successRedirect: '/api/assignments',
     failureFlash: true
 });
 
@@ -54,7 +54,7 @@ usersCtrl.signin = passport.authenticate('login', {
 usersCtrl.logout = (req, res) => {
     req.logout();
     req.flash('success_msg', 'Has cerrado session con exito.');
-    res.redirect('/users/signin');
+    res.redirect('/api/users/signin');
 };
 
 

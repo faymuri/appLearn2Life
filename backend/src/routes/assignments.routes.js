@@ -7,23 +7,30 @@ const {isAuthenticated} = require('../helpers/validateauth');
 
 
 // New assignments
-router.get('/assignments/add', isAuthenticated, renderAssignmentForm);
 
-router.post('/assignments/new-assignment', isAuthenticated, createNewAssignment);
+router.route('/assignments/add')
+    .get(isAuthenticated, renderAssignmentForm);
+
+router.route('/assignments/new-assignment')
+    .post(isAuthenticated, createNewAssignment);
 
 
 // Get all assignments
 
-router.get('/assignments', isAuthenticated, renderAssignments);
+router.route('/assignments')
+    .get(isAuthenticated, renderAssignments);
 
 // Edit assignments
 
-router.get('/assignments/edit/:id', isAuthenticated, renderEditForm);
+router.route('/assignments/edit/:id')
+    .get(isAuthenticated, renderEditForm);
 
-router.put('/assignments/edit/:id', isAuthenticated, updateAssignment);
+router.route('/assignments/edit/:id')
+    .put(isAuthenticated, updateAssignment);
 
 // Delete assignments
 
-router.delete('/assignments/delete/:id', isAuthenticated, deleteAssignment);
+router.route('/assignments/delete/:id')
+    .delete(isAuthenticated, deleteAssignment);
 
 module.exports = router;

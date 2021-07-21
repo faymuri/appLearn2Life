@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const expresshbs = require('express-handlebars');
 const path = require('path');
 const morgan = require('morgan');
@@ -30,6 +31,8 @@ app.set('view engine', '.hbs');
 // Middlewares
 
 app.use(morgan('dev'));
+app.use(cors());
+app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
 app.use(session({
@@ -54,9 +57,9 @@ app.use((req, res, next) => {
 
 // Routes
 
-app.use(require('./routes/index.routes'));
-app.use(require('./routes/assignments.routes'));
-app.use(require('./routes/users.routes'));
+app.use('/api', require('./routes/index.routes'));
+app.use('/api', require('./routes/assignments.routes'));
+app.use('/api', require('./routes/users.routes'));
 
 
 // Static files
