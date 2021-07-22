@@ -12,13 +12,12 @@ assignmentsCtrl.createNewAssignment = async (req, res) => {
     const newAssignment = new Assignment({title, description});
     newAssignment.user = req.user.id;
     await newAssignment.save();
-    req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/api/assignments');
+    res.json({message: 'assignment creada todoz bn'});
 };
 
 assignmentsCtrl.renderAssignments = async (req, res) => {
     const assignments = await Assignment.find({user: req.user.id}).sort({createdAt: 'desc'}).sort({updatedAt: 'asc'}).lean();
-    res.render('assignments/all-assignments', { assignments });
+    res.json({ assignments });
 };
 
 assignmentsCtrl.renderEditForm =  async (req, res) => {
