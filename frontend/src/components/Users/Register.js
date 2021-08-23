@@ -11,7 +11,6 @@ export default class register extends Component {
                 <div className="container text-center my-5 form-user">
                     <form className="form-group">
                         <img className="log-img2 mt-4  mb-4" src="./logo2.png" alt="logo " height="" />
-                        <h1 text="Registrarse"></h1>
                         <div className="input form-group">
                             <i className="fas fa-user"></i>
                             <label for="name" className="form-control sr-only mb-3  my-4"></label>
