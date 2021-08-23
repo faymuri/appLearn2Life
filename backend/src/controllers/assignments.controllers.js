@@ -12,13 +12,12 @@ assignmentsCtrl.createNewAssignment = async (req, res) => {
     const newAssignment = new Assignment({title, description});
     newAssignment.user = req.user.id;
     await newAssignment.save();
-    req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.json({message: 'assignment creada todoz bn'});
 };
 
 assignmentsCtrl.renderAssignments = async (req, res) => {
     const assignments = await Assignment.find({user: req.user.id}).sort({createdAt: 'desc'}).sort({updatedAt: 'asc'}).lean();
-    res.render('assignments/all-assignments', { assignments });
+    res.json({ assignments });
 };
 
 assignmentsCtrl.renderEditForm =  async (req, res) => {
@@ -34,13 +33,13 @@ assignmentsCtrl.updateAssignment = async (req, res) => {
     const { title, description } = req.body;
     await Assignment.findByIdAndUpdate(req.params.id, {title, description}).lean();
     req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/api/assignments');
 };
 
 assignmentsCtrl.deleteAssignment = async (req, res) => {
     await Assignment.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/api/assignments');
 };
 
 module.exports = assignmentsCtrl;

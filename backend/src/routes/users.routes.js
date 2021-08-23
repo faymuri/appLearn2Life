@@ -3,15 +3,20 @@ const router = Router();
 
 const {renderSignupForm, signup, renderSigninForm, signin, logout } = require('../controllers/users.controllers');
 
-router.get('/users/signup', renderSignupForm);
+router.route('/users/signup')
+    .get(renderSignupForm);
 
-router.post('/users/signup', signup);
+router.route('/users/signup')
+    .post(signup);
 
-router.get('/users/signin', renderSigninForm);
+router.route('/users/signin')
+    .get(renderSigninForm);
 
-router.post('/users/signin', signin);
+router.route('/users/signin')
+    .post(signin);
 
-router.get('/users/logout', logout);
+router.route('/users/logout')
+    .get(logout);
 
 
 module.exports = router;

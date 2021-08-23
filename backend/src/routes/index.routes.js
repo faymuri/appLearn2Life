@@ -3,8 +3,10 @@ const router = Router();
 
 const {renderIndex, renderAbout } = require('../controllers/index.controllers')
 
-router.get('/', renderIndex);
+router.route('/')
+    .get(renderIndex);
 
-router.get('/about', renderAbout);
+router.route('/about')
+    .get(renderAbout);
 
 module.exports = router;
