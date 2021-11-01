@@ -11,6 +11,8 @@ const GroupSchema = new Schema({
         type: String,
         required: true
     }
+
+    students: 
     
 
 }, {
