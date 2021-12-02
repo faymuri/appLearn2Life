@@ -19,14 +19,14 @@ require('./config/passport');
 // Settings
 
 app.set('port', process.env.PORT || 8080);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', expresshbs({
+//app.set('views', path.join(__dirname, 'views'));
+/*app.engine('.hbs', expresshbs({
     defaultLayout: 'default',
     layoutsDir: path.join(app.get('views'), 'layouts'),
     partialsDir: path.join(app.get('views'), 'partials'),
     extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
+}));*/
+//app.set('view engine', '.hbs');
 
 // Middlewares
 
@@ -35,13 +35,13 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 app.use(methodOverride('_method'));
-app.use(session({
+/*app.use(session({
     secret: 'secret',
     resave: true,
     saveUninitialized: true
-}));
-app.use(passport.initialize());
-app.use(passport.session());
+}));*/
+//app.use(passport.initialize());
+//app.use(passport.session());
 app.use(flash());
 
 

@@ -1,26 +1,24 @@
 const {Schema, model} = require('mongoose');
 
 
-const GroupSchema = new Schema({
-    name: {
+const AssignmentSchema = new Schema({
+    file: {
         type: String,
         required: true
     },
 
-    description: {
+    assignmentId: {
         type: String,
         required: true
     },
 
-    institutionId: {
+    userId: {
         type: String,
+        required: true
     },
-
-    userIds: [{}],
-    
 
 }, {
     timestamps: true
 });
 
-module.exports = model('Group', GroupSchema);
+module.exports = model('Assignment', AssignmentSchema);

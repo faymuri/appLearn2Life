@@ -1,4 +1,4 @@
-const helpers = {};
+/*const helpers = {};
 
 helpers.isAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()){
@@ -8,4 +8,4 @@ helpers.isAuthenticated = (req, res, next) => {
     res.redirect('/api/users/signin');
 }
 
-module.exports = helpers;
+module.exports = helpers;*/

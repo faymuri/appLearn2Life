@@ -3,34 +3,34 @@ const router = Router();
 
 const {renderAssignmentForm, createNewAssignment, renderAssignments, renderEditForm, updateAssignment, deleteAssignment } = require('../controllers/assignments.controllers');
 
-const {isAuthenticated} = require('../helpers/validateauth');
+//const {isAuthenticated} = require('../helpers/validateauth');
 
 
 // New assignments
 
 router.route('/assignments/add')
-    .get(isAuthenticated, renderAssignmentForm);
+    .get(renderAssignmentForm);
 
 router.route('/assignments/new-assignment')
-    .post(isAuthenticated, createNewAssignment);
+    .post(createNewAssignment);
 
 
 // Get all assignments
 
 router.route('/assignments')
-    .get(isAuthenticated, renderAssignments);
+    .get(renderAssignments);
 
 // Edit assignments
 
 router.route('/assignments/edit/:id')
-    .get(isAuthenticated, renderEditForm);
+    .get(renderEditForm);
 
 router.route('/assignments/edit/:id')
-    .put(isAuthenticated, updateAssignment);
+    .put(updateAssignment);
 
 // Delete assignments
 
 router.route('/assignments/delete/:id')
-    .delete(isAuthenticated, deleteAssignment);
+    .delete(deleteAssignment);
 
 module.exports = router;
