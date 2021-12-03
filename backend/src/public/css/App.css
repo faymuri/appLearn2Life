@@ -21,61 +21,6 @@
 
 }
 
-input::placeholder{
-    color: black !important;;
-}
-
-
-input[type="text"]:focus{
-    box-shadow: none;
-    border: 0;
-}
-
-.input input[type="text"]{
-    border: none;
-    background: transparent;
-    outline: none;
-    padding-left: 25px;
-    border-bottom: 1px solid black;
-
-
-}
-
-.input input[type="email"]{
-    border: none;
-    background: transparent;
-    outline: none;
-    padding-left: 25px;
-    border-bottom: 1px solid black;
-
-}
-
-input[type="password"]:focus{
-    box-shadow: none;
-    
-}
-
-.input input[type="password"]{
-    border: none;
-    background: transparent;
-    outline: none;
-    padding-left:25px;
-    border-bottom: 1px solid black
-}
-
-.input{
-    position: relative;
-    outline: none;
-}
-
-
-.input i{
-    position: absolute;
-    left: 0px;
-    top:2px;
-    padding: 4px 7px;
-    
-}
 
 .btn1{
     opacity: 0.6;
@@ -153,61 +98,6 @@ footer{
 
 }
 
-input::placeholder{
-    color: black !important;;
-}
-
-
-input[type="text"]:focus{
-    box-shadow: none;
-    border: 0;
-}
-
-.input input[type="text"]{
-    border: none;
-    background: transparent;
-    outline: none;
-    padding-left: 25px;
-    border-bottom: 1px solid black;
-
-
-}
-
-.input input[type="email"]{
-    border: none;
-    background: transparent;
-    outline: none;
-    padding-left: 25px;
-    border-bottom: 1px solid black;
-
-}
-
-input[type="password"]:focus{
-    box-shadow: none;
-    
-}
-
-.input input[type="password"]{
-    border: none;
-    background: transparent;
-    outline: none;
-    padding-left:25px;
-    border-bottom: 1px solid black
-}
-
-.input{
-    position: relative;
-    outline: none;
-}
-
-
-.input i{
-    position: absolute;
-    left: 0px;
-    top:2px;
-    padding: 4px 7px;
-    
-}
 
 .btn1{
     opacity: 0.6;
@@ -448,3 +338,14 @@ body{
     background: -webkit-linear-gradient(left,black ,#076ac0);
     
 }
+
+/**----cards**--**/
+
+
+
+
+.custom-card{
+    background-color:#0083B0;
+    border-radius:px;
+}
+

@@ -1,40 +1,42 @@
-<div class="row">
-  <div class="col-md-4 mx-auto">
-    <div class="card">
-      <div class="card-header text-center">
-        Registrar Usuario
-      </div>
-      <div class="card-body">
-        <form action="/users/signup" method="POST">
-          <div class="form-group">
-            <input type="email" class="form-control" name="email" placeholder="Email institución" value="{{email}}"
-              autofocus>
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="name" placeholder="Nombre institucón" value="{{name}}">
-          </div>
-          <div class="form-group">
-            <input type="text" class="form-control" name="documentId" placeholder="Documento de identidad" value="">
-          </div>
-          <div class="form-group">
-            <label class=for="name">
-              <select name="role" value="">
-                <option value="profesor">Profesor</option>
-                <option value="estudiante">Estudiante</option>
-          </div>
-           <div class="form-group">
-            <input type="text" class="form-control" name="institutionCode" placeholder="Codigo de institución">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="contraseña">
-          </div>
-          <div class="form-group">
-            <input type="password" class="form-control" name="confirm_password" placeholder="confirmar contraseña">
-          </div>
-          <button class="btn btn-primary btn-block">
-            Registrar
-          </button>
-        </form>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-4 mx-auto">
+      <div class="card">
+        <div class="card-header text-center">
+          Registrar Usuario
+        </div>
+        <div class="card-body">
+          <form action="/users/signup" method="POST">
+            <div class="form-group">
+              <input type="email" class="form-control" name="email" placeholder="Email institución" value="{{email}}"
+                autofocus>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" placeholder="Nombre Completo" value="{{name}}">
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="documentId" placeholder="Documento de identidad" value="">
+            </div>
+            <div class="form-group">
+              <label class="mr-3">Seleccione tipo de usuario</label>
+                <select name="role" value="" class="mb-3">
+                  <option value="profesor">Profesor</option>
+                  <option value="estudiante">Estudiante</option>
+            </div>
+            <div class="form-group">
+              <input type="text" class="form-control" name="institutionCode" placeholder="Codigo de institución">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="password" placeholder="contraseña">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" name="confirm_password" placeholder="confirmar contraseña">
+            </div>
+            <button class="btn btn-primary btn-block">
+              Registrar
+            </button>
+          </form>
+        </div>
       </div>
     </div>
   </div>
