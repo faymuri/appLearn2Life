@@ -57,9 +57,9 @@ app.use((req, res, next) => {
 
 // Routes
 
-app.use('/api', require('./routes/index.routes'));
-app.use('/api', require('./routes/assignments.routes'));
-app.use('/api', require('./routes/users.routes'));
+app.use('/', require('./routes/index.routes'));
+app.use('/', require('./routes/assignments.routes'));
+app.use('/', require('./routes/users.routes'));
 
 
 // Static files
