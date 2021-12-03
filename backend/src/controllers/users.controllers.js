@@ -61,7 +61,7 @@ usersCtrl.logout = (req, res) => {
     req.flash('success_msg', 'Has cerrado session con exito.');
     res.redirect('/users/signin');
 };
-
+//prueba
 
 
 module.exports = usersCtrl;
