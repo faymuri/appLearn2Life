@@ -1,46 +1,46 @@
-const assignmentsCtrl = {};
+const responseAssignmentsCtrl = {};
 
-const Assignment = require('../models/Assignment');
+const responseAssignment = require('../models/ResponseAssignments');
 
 
-assignmentsCtrl.renderAssignmentForm =  (req, res) => {
-    res.render('assignments/new-assignment');
+responseAssignmentsCtrl.renderresponseAssignmentForm =  (req, res) => {
+    res.render('responseAssignments/new-responseAssignments');
 };
 
-assignmentsCtrl.createNewAssignment = async (req, res) => {
+responseAssignmentsCtrl.createNewresponseAssignment = async (req, res) => {
     const {title, description} = req.body;
-    const newAssignment = new Assignment({title, description});
+    const newResponseAssignments = new responseAssignment({title, description});
     newAssignment.courseId = req.course.id;
-    await newAssignment.save();
+    await newresponseAssignments.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/responseAssignments');
 };
 
-assignmentsCtrl.renderAssignments = async (req, res) => {
-    const assignments = await Assignment.find({user: req.user.id}).sort({createdAt: 'desc'}).sort({updatedAt: 'asc'}).lean();
-    res.render('assignments/all-assignments', { assignments });
+responseAssignmentsCtrl.renderResponseAssignments = async (req, res) => {
+    const responseAssignments = await responseAssignments.find({user: req.user.id}).sort({createdAt: 'desc'}).sort({updatedAt: 'asc'}).lean();
+    res.render('responseAssignments/all-responseAssignments', { responseAssignments });
 };
 
-assignmentsCtrl.renderEditForm =  async (req, res) => {
-    const assignment = await Assignment.findById(req.params.id).lean();
-    if (assignment.user != req.user.id) {
+responseAssignmentsCtrl.renderEditForm =  async (req, res) => {
+    const responseAssignments = await Assignment.findById(req.params.id).lean();
+    if (responseAssignments.user != req.user.id) {
         req.flash('error_msg', 'Acceso no autorizado');
-        return res.redirect('/assignments');
+        return res.redirect('/responseAssignments');
     };
-    res.render('assignments/edit-assignment', { assignment });
+    res.render('responseAssignments/edit-responseAssignments', { assignment });
 };
 
-assignmentsCtrl.updateAssignment = async (req, res) => {
+responseAssignmentsCtrl.updateResponseAssignments = async (req, res) => {
     const { title, description } = req.body;
-    await Assignment.findByIdAndUpdate(req.params.id, {title, description}).lean();
+    await responseAssignments.findByIdAndUpdate(req.params.id, {title, description}).lean();
     req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/responseAssignments');
 };
 
-assignmentsCtrl.deleteAssignment = async (req, res) => {
-    await Assignment.findByIdAndDelete(req.params.id);
+responseAssignmentsCtrl.deleteResponseAssignmentst = async (req, res) => {
+    await responseAssignments.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/responseAssignments');
 };
 
-module.exports = assignmentsCtrl;
+module.exports = responseAssignmentsCtrl;
