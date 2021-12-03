@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const router = Router();
 
-const {renderSignupForm, signup, renderSigninForm, signin, logout } = require('../controllers/institutions.controller');
+const {renderSignupForm, signup, renderSigninForm, signin, renderAdmin, logout } = require('../controllers/institutions.controller');
 
 router.route('/institutions/signup')
     .get(renderSignupForm);
@@ -14,6 +14,9 @@ router.route('/institutions/signin')
 
 router.route('/institutions/signin')
     .post(signin);
+
+router.route('/institutions/admin')
+    .get(renderAdmin)
 
 router.route('/institutions/logout')
     .get(logout);

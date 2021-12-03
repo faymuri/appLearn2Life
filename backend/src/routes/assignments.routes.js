@@ -20,6 +20,7 @@ router.route('/assignments/new-assignment')
 router.route('/assignments')
     .get(isAuthenticated, renderAssignments);
 
+
 // Edit assignments
 
 router.route('/assignments/edit/:id')

@@ -41,12 +41,16 @@ institutionsCtrl.signup = async (req, res) => {
 };
 
 institutionsCtrl.renderSigninForm = (req, res) => {
-    res.render('intitutions/signin');
+    res.render('institutions/signin');
+};
+
+institutionsCtrl.renderAdmin = (req, res) => {
+    res.render('institutions/admin')
 };
 
 institutionsCtrl.signin = passport.authenticate('loginAdmin', {
     failureRedirect: '/institutions/signin',
-    successRedirect: '/admin',
+    successRedirect: '/institutions/admin',
     failureFlash: true
 });
 
