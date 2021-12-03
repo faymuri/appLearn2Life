@@ -6,7 +6,7 @@ const InstitutionSchema = new Schema({
     email: {type: String, required: true, unique: true},
     name: {type: String, required: true},
     password: {type: String, required: true},
-    documentId: {type: String},
+    documentId: {type: String, required: true},
     institutionCode: {type: String},
 }, {
     timestamps: true
