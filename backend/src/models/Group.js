@@ -14,9 +14,13 @@ const GroupSchema = new Schema({
 
     institutionId: {
         type: String,
+        
     },
 
-    userIds: [{}],
+    user: {
+        type: String
+
+    },
     
 
 }, {

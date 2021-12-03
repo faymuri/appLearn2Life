@@ -31,16 +31,18 @@ usersCtrl.signup = async (req, res) => {
         if (emailUser) {
             req.flash('error_msg', 'El email ingresado ya esta en uso');
             res.redirect('/users/signup');
-
-        //const institutioCode = await Institution.find({institutionCode: institutionCode}.lean();
-        //if (institutionCode){
+        
 
         } else {
+
+            const checkCode = await Institution.find({institutionCode: institutionCode}).lean();
+            if (checkCode){      
             const newUser = new User({email, name, password, documentId, role, institutionCode, institutionId});
+            institutionId = await Institution.find({_id});
             newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
             req.flash('success_msg', 'El usuario ha sido registrado exitosamente')
-            res.redirect('/users/signin');
+            res.redirect('/users/signin')};
         };
     };
 };
@@ -61,7 +63,7 @@ usersCtrl.logout = (req, res) => {
     req.flash('success_msg', 'Has cerrado session con exito.');
     res.redirect('/users/signin');
 };
-//prueba
+
 
 
 module.exports = usersCtrl;

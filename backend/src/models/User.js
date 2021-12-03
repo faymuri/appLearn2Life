@@ -8,8 +8,8 @@ const UserSchema = new Schema({
     password: {type: String, required: true},
     documentId: {type: String, required: true},
     role : {type: String, required: true},
-    institutionCode: [{}],
-    institutionId: [{}],
+    institutionCode: {type: String},
+    institutionId: {type: Object},
 }, {
     timestamps: true
 });

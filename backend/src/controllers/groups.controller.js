@@ -10,7 +10,7 @@ groupsCtrl.renderGroupForm =  (req, res) => {
 groupsCtrl.createNewGroup = async (req, res) => {
     const {title, description} = req.body;
     const newGroup = new Group({title, description});
-    //newGroup.institutionId = req.instution.id;
+    newGroup.user = req.user.id;
     await newGroup.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
     res.redirect('/groups');
