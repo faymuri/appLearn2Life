@@ -1,16 +1,16 @@
-const usersCtrl = {};
+const institutionsCtrl = {};
 
 const passport = require('passport');
 
 const Institution = require('../models/Institution');
 
 
-usersCtrl.renderSignupForm = (req, res) => {
-    res.render('users/signup');
+institutionsCtrl.renderSignupForm = (req, res) => {
+    res.render('institutions/signup');
 };
 
 
-usersCtrl.signup = async (req, res) => {
+institutionsCtrl.signup = async (req, res) => {
     const errors = [];
     const {email, name, password, confirm_password} = req.body;
     if (password != confirm_password) {
@@ -20,43 +20,43 @@ usersCtrl.signup = async (req, res) => {
         errors.push ({text: 'Contraseña debe tener almenos 8 caracteres'});
     };
     if (errors.length > 0) {
-        res.render('users/signup', {
+        res.render('institutions/signup', {
             errors,
             email,
             name
         });
     } else {
-        const emailUser = await User.findOne({email: email}).lean();
-        if (emailUser) {
+        const emailInstitution = await Institution.findOne({email: email}).lean();
+        if (emailInstitution) {
             req.flash('error_msg', 'El email ingresado ya esta en uso');
-            res.redirect('/users/signup');
+            res.redirect('/institutions/signup');
         } else {
-            const newUser = new User({email, name, password});
-            newUser.password = await newUser.encryptPassword(password);
-            await newUser.save();
-            req.flash('success_msg', 'El usuario ha sido registrado exitosamente')
-            res.redirect('/users/signin');
+            const newInstitution = new Institution({email, name, password});
+            newInstitution.password = await newInstitution.encryptPassword(password);
+            await newInstitution.save();
+            req.flash('success_msg', 'La institucion ha sido registrado exitosamente')
+            res.redirect('/institutions/signin');
         };
     };
 };
 
-usersCtrl.renderSigninForm = (req, res) => {
-    res.render('users/signin');
+institutionsCtrl.renderSigninForm = (req, res) => {
+    res.render('intitutions/signin');
 };
 
-usersCtrl.signin = passport.authenticate('login', {
-    failureRedirect: '/api/users/signin',
-    successRedirect: '/api/assignments',
+institutionsCtrl.signin = passport.authenticate('login', {
+    failureRedirect: '/institutions/signin',
+    successRedirect: '/',
     failureFlash: true
 });
 
 
-usersCtrl.logout = (req, res) => {
+institutionsCtrl.logout = (req, res) => {
     req.logout();
     req.flash('success_msg', 'Has cerrado session con exito.');
-    res.redirect('/api/users/signin');
+    res.redirect('institutions/signin');
 };
 
 
 
-module.exports = usersCtrl;
+module.exports = institutionsCtrl;

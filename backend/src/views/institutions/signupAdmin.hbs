@@ -2,6 +2,37 @@
   <div class="col-md-4 mx-auto">
     <div class="card">
       <div class="card-header text-center">
+        Registrar institución
+      </div>
+      <div class="card-body">
+        <form action="/users/signup" method="POST">
+          <div class="form-group">
+            <input type="email" class="form-control" name="email" placeholder="Email institución" value="{{email}}" autofocus>
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" name="name" placeholder="Nombre institucón" value="{{name}}">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="contraseña">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" name="confirm_password" placeholder="confirmar contraseña">
+          </div>
+          <button class="btn btn-primary btn-block">
+            Registrar
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+ 
+
+<div class="row">
+  <div class="col-md-4 mx-auto">
+    <div class="card">
+      <div class="card-header text-center">
         Registrar cuenta Usuario
       </div>
       <div class="card-body">

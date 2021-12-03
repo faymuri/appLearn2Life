@@ -32,9 +32,7 @@ app.set('view engine', '.hbs');
 // Middlewares
 
 app.use(morgan('dev'));
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'secret',
@@ -60,7 +58,11 @@ app.use((req, res, next) => {
 
 app.use(require('./routes/index.routes'));
 app.use(require('./routes/assignments.routes'));
+app.use(require('./routes/institutions.routes'));
 app.use(require('./routes/users.routes'));
+app.use(require('./routes/groups.routes'));
+app.use(require('./routes/courses.routes'));
+app.use(require('./routes/responseAssingments.routes'));
 
 
 // Static files
