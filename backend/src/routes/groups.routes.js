@@ -1,36 +1,36 @@
 const {Router} = require('express');
 const router = Router();
 
-const {renderAssignmentForm, createNewAssignment, renderAssignments, renderEditForm, updateAssignment, deleteAssignment } = require('../controllers/assignments.controllers');
+const {renderGroupForm, createNewGroup, renderGroup, renderEditForm, updateGroup, deleteGroup } = require('../controllers/groups.controllers');
 
 const {isAuthenticated} = require('../helpers/validateauth');
 
 
 // New assignments
 
-router.route('/assignments/add')
-    .get(isAuthenticated, renderAssignmentForm);
+router.route('/groups/add')
+    .get(isAuthenticated, renderGroupForm);
 
-router.route('/assignments/new-assignment')
-    .post(isAuthenticated, createNewAssignment);
+router.route('/groups/new-group')
+    .post(isAuthenticated, createNewGroup);
 
 
 // Get all assignments
 
-router.route('/assignments')
-    .get(isAuthenticated, renderAssignments);
+router.route('/groups')
+    .get(isAuthenticated, renderGroup);
 
 // Edit assignments
 
-router.route('/assignments/edit/:id')
+router.route('/groups/edit/:id')
     .get(isAuthenticated, renderEditForm);
 
-router.route('/assignments/edit/:id')
-    .put(isAuthenticated, updateAssignment);
+router.route('/groups/edit/:id')
+    .put(isAuthenticated, updateGroup);
 
 // Delete assignments
 
-router.route('/assignments/delete/:id')
-    .delete(isAuthenticated, deleteAssignment);
+router.route('/groups/delete/:id')
+    .delete(isAuthenticated, deleteGroup);
 
 module.exports = router;

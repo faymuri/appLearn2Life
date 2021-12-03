@@ -1,36 +1,36 @@
 const {Router} = require('express');
 const router = Router();
 
-const {renderAssignmentForm, createNewAssignment, renderAssignments, renderEditForm, updateAssignment, deleteAssignment } = require('../controllers/assignments.controllers');
+const {renderCourseForm, createNewCourse, renderCourses, renderEditForm, updateCourse, deleteCourse } = require('../controllers/assignments.controllers');
 
 const {isAuthenticated} = require('../helpers/validateauth');
 
 
 // New assignments
 
-router.route('/assignments/add')
-    .get(isAuthenticated, renderAssignmentForm);
+router.route('/courses/add')
+    .get(isAuthenticated, renderCourseForm);
 
-router.route('/assignments/new-assignment')
-    .post(isAuthenticated, createNewAssignment);
+router.route('/courses/new-course')
+    .post(isAuthenticated, createNewCourse);
 
 
 // Get all assignments
 
-router.route('/assignments')
-    .get(isAuthenticated, renderAssignments);
+router.route('/courses')
+    .get(isAuthenticated, renderCourses);
 
 // Edit assignments
 
-router.route('/assignments/edit/:id')
+router.route('/courses/edit/:id')
     .get(isAuthenticated, renderEditForm);
 
-router.route('/assignments/edit/:id')
-    .put(isAuthenticated, updateAssignment);
+router.route('/courses/edit/:id')
+    .put(isAuthenticated, updateCourse);
 
 // Delete assignments
 
-router.route('/assignments/delete/:id')
-    .delete(isAuthenticated, deleteAssignment);
+router.route('/courses/delete/:id')
+    .delete(isAuthenticated, deleteCourse);
 
 module.exports = router;
