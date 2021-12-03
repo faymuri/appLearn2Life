@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const router = Router();
 
-const {renderGroupForm, createNewGroup, renderGroup, renderEditForm, updateGroup, deleteGroup } = require('../controllers/groups.controllers');
+const {renderGroupForm, createNewGroup, renderGroups, renderEditForm, updateGroup, deleteGroup } = require('../controllers/groups.controller');
 
 const {isAuthenticated} = require('../helpers/validateauth');
 
@@ -18,7 +18,7 @@ router.route('/groups/new-group')
 // Get all assignments
 
 router.route('/groups')
-    .get(isAuthenticated, renderGroup);
+    .get(isAuthenticated, renderGroups);
 
 // Edit assignments
 

@@ -1,6 +1,6 @@
-const assignmentsCtrl = {};
+const coursesCtrl = {};
 
-const Assignment = require('../models/Course');
+const Course = require('../models/Course');
 
 
 coursesCtrl.renderCourseForm =  (req, res) => {
@@ -10,7 +10,7 @@ coursesCtrl.renderCourseForm =  (req, res) => {
 coursesCtrl.createNewCourse = async (req, res) => {
     const {title, description} = req.body;
     const newCourse = new Course({title, description});
-    newCourse.courseId = req.course.id;
+    newCourse.user = req.user.id;
     await newCourse.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
     res.redirect('/assignments');
@@ -34,13 +34,13 @@ coursesCtrl.updateCourse = async (req, res) => {
     const { title, description } = req.body;
     await Course.findByIdAndUpdate(req.params.id, {title, description}).lean();
     req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/courses');
 };
 
 coursesCtrl.deleteCourse = async (req, res) => {
     await Course.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/courses');
 };
 
 module.exports = coursesCtrl;

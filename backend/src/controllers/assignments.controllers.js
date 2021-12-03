@@ -10,7 +10,7 @@ assignmentsCtrl.renderAssignmentForm =  (req, res) => {
 assignmentsCtrl.createNewAssignment = async (req, res) => {
     const {title, description} = req.body;
     const newAssignment = new Assignment({title, description});
-    newAssignment.courseId = req.course.id;
+    newAssignment.user = req.user.id;
     await newAssignment.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
     res.redirect('/assignments');

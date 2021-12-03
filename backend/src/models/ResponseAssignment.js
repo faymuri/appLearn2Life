@@ -1,7 +1,7 @@
 const {Schema, model} = require('mongoose');
 
 
-const AssignmentSchema = new Schema({
+const ResponseAssignmentSchema = new Schema({
     file: {
         type: String,
         required: true
@@ -21,4 +21,4 @@ const AssignmentSchema = new Schema({
     timestamps: true
 });
 
-module.exports = model('Assignment', AssignmentSchema);
+module.exports = model('ResponseAssignment', ResponseAssignmentSchema);

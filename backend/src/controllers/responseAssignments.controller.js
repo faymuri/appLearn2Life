@@ -1,17 +1,17 @@
 const responseAssignmentsCtrl = {};
 
-const responseAssignment = require('../models/ResponseAssignments');
+const ResponseAssignment = require('../models/ResponseAssignment');
 
 
-responseAssignmentsCtrl.renderresponseAssignmentForm =  (req, res) => {
-    res.render('responseAssignments/new-responseAssignments');
+responseAssignmentsCtrl.renderResponseAssignmentForm =  (req, res) => {
+    res.render('responseAssignments/new-responseAssignment');
 };
 
-responseAssignmentsCtrl.createNewresponseAssignment = async (req, res) => {
+responseAssignmentsCtrl.createNewResponseAssignment = async (req, res) => {
     const {title, description} = req.body;
-    const newResponseAssignments = new responseAssignment({title, description});
-    newAssignment.courseId = req.course.id;
-    await newresponseAssignments.save();
+    const newResponseAssignments = new ResponseAssignment({title, description});
+    newAssignment.user = req.user.id;
+    await newResponseAssignments.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
     res.redirect('/responseAssignments');
 };
@@ -22,12 +22,12 @@ responseAssignmentsCtrl.renderResponseAssignments = async (req, res) => {
 };
 
 responseAssignmentsCtrl.renderEditForm =  async (req, res) => {
-    const responseAssignments = await Assignment.findById(req.params.id).lean();
+    const responseAssignments = await responseAssignments.findById(req.params.id).lean();
     if (responseAssignments.user != req.user.id) {
         req.flash('error_msg', 'Acceso no autorizado');
         return res.redirect('/responseAssignments');
     };
-    res.render('responseAssignments/edit-responseAssignments', { assignment });
+    res.render('responseAssignments/edit-responseAssignment', { responseAssignments });
 };
 
 responseAssignmentsCtrl.updateResponseAssignments = async (req, res) => {
@@ -37,7 +37,7 @@ responseAssignmentsCtrl.updateResponseAssignments = async (req, res) => {
     res.redirect('/responseAssignments');
 };
 
-responseAssignmentsCtrl.deleteResponseAssignmentst = async (req, res) => {
+responseAssignmentsCtrl.deleteResponseAssignments = async (req, res) => {
     await responseAssignments.findByIdAndDelete(req.params.id);
     req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
     res.redirect('/responseAssignments');

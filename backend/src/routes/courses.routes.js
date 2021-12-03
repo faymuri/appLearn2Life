@@ -1,7 +1,7 @@
 const {Router} = require('express');
 const router = Router();
 
-const {renderCourseForm, createNewCourse, renderCourses, renderEditForm, updateCourse, deleteCourse } = require('../controllers/assignments.controllers');
+const {renderCourseForm, createNewCourse, renderCourses, renderEditForm, updateCourse, deleteCourse } = require('../controllers/courses.controller');
 
 const {isAuthenticated} = require('../helpers/validateauth');
 
