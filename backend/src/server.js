@@ -18,6 +18,7 @@ require('./config/passport');
 
 // Settings
 
+
 app.set('port', process.env.PORT || 5500);
 app.set('views', path.join(__dirname, 'views'));
 app.engine('.hbs', expresshbs({
