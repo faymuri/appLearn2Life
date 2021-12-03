@@ -3,6 +3,7 @@ const usersCtrl = {};
 const passport = require('passport');
 
 const User = require('../models/User');
+const Institution = require('../models/Institution');
 
 
 usersCtrl.renderSignupForm = (req, res) => {
@@ -30,6 +31,10 @@ usersCtrl.signup = async (req, res) => {
         if (emailUser) {
             req.flash('error_msg', 'El email ingresado ya esta en uso');
             res.redirect('/users/signup');
+
+        //const institutioCode = await Institution.find({institutionCode: institutionCode}.lean();
+        //if (institutionCode){
+
         } else {
             const newUser = new User({email, name, password, documentId, role, institutionCode, institutionId});
             newUser.password = await newUser.encryptPassword(password);
