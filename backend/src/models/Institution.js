@@ -2,14 +2,12 @@ const {Schema, model} = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 
-const UserSchema = new Schema({
-    email: {type: String, required: true, unique: true, trim: true},
+const InstitutionSchema = new Schema({
+    email: {type: String, required: true, unique: true},
     name: {type: String, required: true},
     password: {type: String, required: true},
     documentId: {type: String, required: true},
-    role : {type: String, required: true},
-    institutionCode: [{}],
-    institutionId: [{}],
+    institutionCode: {type: String},
 }, {
     timestamps: true
 });
@@ -24,4 +22,4 @@ UserSchema.methods.matchPassword = async function(password){
 
 }
 
-module.exports = model('User', UserSchema);
+module.exports = model('Institution', InstitutionSchema);

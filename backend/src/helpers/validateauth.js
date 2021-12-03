@@ -5,7 +5,7 @@ helpers.isAuthenticated = (req, res, next) => {
         return next();
     }
     req.flash('error_msg', 'No autorizado, debe iniciar session primero');
-    res.redirect('/api/users/signin');
+    res.redirect('/users/signin');
 }
 
 module.exports = helpers;

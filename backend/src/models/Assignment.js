@@ -12,19 +12,16 @@ const AssignmentSchema = new Schema({
         required: true
     },
 
-    user: {
+    courseId: {
         type: String,
         required: true
-    }
+    },
 
-//   Files: {
-//       type: String
-//   },
-//
-//   idCourse: {
-//       
-//       type: int
-//    }
+    file: {
+       type: String
+    },
+
+    dateFinal: {type: Date}
 
 }, {
     timestamps: true
