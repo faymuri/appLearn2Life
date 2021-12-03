@@ -1,4 +1,14 @@
-<footer class="text-center text-lg-start bg-white text-muted">
+import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
+import '../../stylesCSS/footer.css'
+
+
+
+export default class footer extends Component {
+  render() {
+    return (
+
+      <footer class="text-center text-lg-start bg-dark text-muted">
         <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
           <div class="me-5 d-none d-lg-block">
             <span>Get connected with us on social networks:</span>
@@ -29,7 +39,7 @@
             <div class="row mt-3">
               <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
                 <h6 class="text-uppercase fw-bold mb-4">
-                  <img class="footer-logo" src="img/logo2.png"/>
+                  <img class="footer-logo" src="./logo2.png"/>
                 </h6>
                 <p>
                 All Rights Reserved. Learn2Life is a registered trademark of Software. All other trademarks, service marks or trade names appearing herein are the property of their respective owners. The content has been compiled with meticulous care and to the best of our knowledge. However, Learn2Life cannot assume any liability for the up-to-dateness, completeness or accuracy.
@@ -85,3 +95,6 @@
           <Link class="text-reset fw-bold" href="/">Learn2Life</Link>
         </div>
       </footer>
+    )
+  }
+}
