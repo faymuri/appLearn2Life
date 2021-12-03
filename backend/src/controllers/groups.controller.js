@@ -1,10 +1,10 @@
-const assignmentsCtrl = {};
+const groupsCtrl = {};
 
-const Assignment = require('../models/Assignment');
+const group = require('../models/Group');
 
 
-assignmentsCtrl.renderAssignmentForm =  (req, res) => {
-    res.render('assignments/new-assignment');
+groupsCtrl.renderGroupForm =  (req, res) => {
+    res.render('groups/new-assignment');
 };
 
 assignmentsCtrl.createNewAssignment = async (req, res) => {
