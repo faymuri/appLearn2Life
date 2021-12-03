@@ -1,9 +1,18 @@
+<<<<<<< HEAD
 const groupCtrl = {};
 
 const group = require('../models/group');
 
 
 assignmentsCtrl.renderGroupsForm =  (req, res) => {
+=======
+const groupsCtrl = {};
+
+const group = require('../models/Group');
+
+
+groupsCtrl.renderGroupForm =  (req, res) => {
+>>>>>>> 6690217267d231572771abfac7ebdc5b1c8fc45c
     res.render('groups/new-assignment');
 };
 
