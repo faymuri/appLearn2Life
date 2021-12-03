@@ -46,7 +46,7 @@ institutionsCtrl.renderSigninForm = (req, res) => {
 
 institutionsCtrl.signin = passport.authenticate('loginAdmin', {
     failureRedirect: '/institutions/signin',
-    successRedirect: '/',
+    successRedirect: '/admin',
     failureFlash: true
 });
 
