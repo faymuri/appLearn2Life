@@ -12,12 +12,12 @@ const InstitutionSchema = new Schema({
     timestamps: true
 });
 
-institutionSchema.methods.encryptPassword = async password => {
+InstitutionSchema.methods.encryptPassword = async password => {
     const salt = await bcrypt.genSalt(10);
     return await bcrypt.hash(password, salt);
 };
 
-institutionSchema.methods.matchPassword = async function(password){
+InstitutionSchema.methods.matchPassword = async function(password){
     return await bcrypt.compare(password, this.password);
 
 }

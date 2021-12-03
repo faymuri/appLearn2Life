@@ -44,7 +44,7 @@ institutionsCtrl.renderSigninForm = (req, res) => {
     res.render('intitutions/signin');
 };
 
-institutionsCtrl.signin = passport.authenticate('login', {
+institutionsCtrl.signin = passport.authenticate('loginAdmin', {
     failureRedirect: '/institutions/signin',
     successRedirect: '/',
     failureFlash: true

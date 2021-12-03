@@ -7,10 +7,6 @@ mongoose.connect(MONGODB_URI, {
     useUnifiedTopology: true,
     useCreateIndex: true,
     useNewUrlParser: true
-});
-
-const connection = mongoose.connection;
-
-connection.once('open', () => {
-    console.log('Database is connected');
-});
+})
+.then(db => console.log('Database is connected'))
+.catch(err => console.log(err));
