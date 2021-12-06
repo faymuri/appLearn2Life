@@ -7,40 +7,51 @@ groupsCtrl.renderGroupForm = (req, res) => {
     res.render('groups/new-group');
 };
 
-groupsCtrl.createNewGroup = async(req, res) => {
-    const { title, description } = req.body;
-    const newGroup = new Group({ title, description });
-    //newGroup.institutionId = req.instution.id;
+groupsCtrl.createNewGroup = async (req, res) => {
+    const { title, description, institutionId, userId } = req.body;
+    //const {institutionId, userId} = req.user;
+    const newGroup = new Group({ title, description, institutionId, userId });
+    newGroup.institutionId = req.user.institutionId;
+    newGroup.userId = req.user.id;
     await newGroup.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
     res.redirect('/groups');
 };
 
-groupsCtrl.renderGroups = async(req, res) => {
+
+groupsCtrl.renderGroups = async (req, res) => {
     const groups = await Groups.find().sort({ createdAt: 'desc' }).sort({ updatedAt: 'asc' }).lean();
     res.render('groups/all-groups', { groups });
 };
 
-groupsCtrl.renderEditForm = async(req, res) => {
+groupsCtrl.renderEditForm = async (req, res) => {
     const Group = await Group.findById(req.params.id).lean();
     if (group.user != req.user.id) {
-        req.flash('error_msg', 'Acceso no autorizado');
-        return res.redirect('/groups');
-    };
-    res.render('groups/edit-group', { group });
-};
+        groupsCtrl.renderGroups = async (req, res) => {
+            const groups = await Group.find({ userId: req.user.id, institutionId: req.user.institutionId }).lean();
+            res.render('groups/all-groups', { groups });
+        };
 
-groupsCtrl.updateGroup = async(req, res) => {
-    const { title, description } = req.body;
-    await Group.findByIdAndUpdate(req.params.id, { title, description }).lean();
-    req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
-    res.redirect('/Groups');
-};
+        groupsCtrl.renderEditForm = async (req, res) => {
+            const groups = await Group.findById(req.params.id).lean();
+            if (groups.userId != req.user.id && groups.institutionId != req.user.institutionId) {
+                req.flash('error_msg', 'Acceso no autorizado');
+                return res.redirect('/groups');
+            };
+            res.render('groups/edit-group', { groups });
+        };
 
-groupsCtrl.deleteGroup = async(req, res) => {
-    await Groups.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
-    res.redirect('/groups');
-};
+        groupsCtrl.updateGroup = async (req, res) => {
+            const { title, description } = req.body;
+            await Group.findByIdAndUpdate(req.params.id, { title, description }).lean();
+            req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
+            res.redirect('/Groups');
+        };
 
-module.exports = groupsCtrl;
+        groupsCtrl.deleteGroup = async (req, res) => {
+            await Groups.findByIdAndDelete(req.params.id);
+            req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
+            res.redirect('/groups');
+        };
+
+ module.exports = groupsCtrl;

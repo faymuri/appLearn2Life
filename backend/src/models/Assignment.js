@@ -12,7 +12,7 @@ const AssignmentSchema = new Schema({
         required: true
     },
 
-    courseId: {
+    user: {
         type: String,
         required: true
     },

@@ -11,9 +11,10 @@ usersCtrl.renderSignupForm = (req, res) => {
 };
 
 
-usersCtrl.signup = async(req, res) => {
+usersCtrl.signup = async (req, res) => {
+
     const errors = [];
-    const { email, name, password, confirm_password, documentId, role, institutionCode, institutionId } = req.body;
+    const {email, name, password, confirm_password, documentId, role, institutionCode, institutionId} = req.body;   
     if (password != confirm_password) {
         errors.push({ text: 'contraseñas no coinciden' });
     };
@@ -27,18 +28,22 @@ usersCtrl.signup = async(req, res) => {
             name
         });
     } else {
-        const emailUser = await User.findOne({ email: email }).lean();
+        const emailUser = await User.findOne({email: email}).lean();
+        console.log (emailUser); 
         if (emailUser) {
             req.flash('error_msg', 'El email ingresado ya esta en uso');
             res.redirect('/users/signup');
 
-            //const institutioCode = await Institution.find({institutionCode: institutionCode}.lean();
-            //if (institutionCode){
-
         } else {
-            const newUser = new User({ email, name, password, documentId, role, institutionCode, institutionId });
+
+            //if (checkCode){ 
+   
+            const newUser = new User({email, name, password, documentId, role, institutionCode, institutionId});
+            const institution = await Institution.find({institutionCode: institutionCode},{"_id": 1});
+            newUser.institutionId = (institution);
             newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
+            console.log (newUser, institution);
             req.flash('success_msg', 'El usuario ha sido registrado exitosamente')
             res.redirect('/users/signin');
         };
@@ -61,7 +66,7 @@ usersCtrl.logout = (req, res) => {
     req.flash('success_msg', 'Has cerrado session con exito.');
     res.redirect('/users/signin');
 };
-//prueba
+
 
 
 module.exports = usersCtrl;

@@ -24,8 +24,10 @@ passport.use('login', new LocalStrategy({
 }));
 
 passport.serializeUser((user, done) => {
-    done(null, user.id);
+    done(null, user.id, user.institutionId);
 });
+
+
 
 passport.deserializeUser((id, done) =>{
     User.findById(id, (err, user) => {
@@ -55,6 +57,7 @@ passport.use('loginAdmin', new LocalStrategy({
 passport.serializeUser((institution, done) => {
     done(null, institution.id);
 });
+
 
 passport.deserializeUser((id, done) =>{
     Institution.findById(id, (err, user) => {

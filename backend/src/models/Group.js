@@ -2,23 +2,14 @@ const {Schema, model} = require('mongoose');
 
 
 const GroupSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
+    title: { type: String, required: true},
 
-    description: {
-        type: String,
-        required: true
-    },
+    description: {type: String, required: true},
 
-    institutionId: {
-        type: String,
-    },
+    institutionId: [{}],
 
-    userIds: [{}],
+    userId: [{}],
     
-
 }, {
     timestamps: true
 });
