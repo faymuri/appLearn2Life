@@ -4,9 +4,11 @@ const {LEARN2LIFE_APP_MONGODB_HOST, LEARN2LIFE_APP_MONGODB_DATABASE} = process.e
 const MONGODB_URI = `mongodb://${LEARN2LIFE_APP_MONGODB_HOST}/${LEARN2LIFE_APP_MONGODB_DATABASE}`;
 
 mongoose.connect(MONGODB_URI, {
+  
+    useNewUrlParser: true,
     useUnifiedTopology: true,
-    useCreateIndex: true,
-    useNewUrlParser: true
+    useCreateIndex: true
+    
 })
 .then(db => console.log('Database is connected'))
 .catch(err => console.log(err));

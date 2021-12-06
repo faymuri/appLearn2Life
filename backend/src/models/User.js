@@ -1,4 +1,4 @@
-const {Schema, model} = require('mongoose');
+const {Schema, model, isValidObjectId} = require('mongoose');
 const bcrypt = require('bcryptjs');
 
 
@@ -8,8 +8,8 @@ const UserSchema = new Schema({
     password: {type: String, required: true},
     documentId: {type: String, required: true},
     role : {type: String, required: true},
-    institutionCode: {type: String},
-    institutionId: {type: Object},
+    institutionCode: {type: String, required: true},
+    institutionId: [{type: Object, required: true}], 
 }, {
     timestamps: true
 });

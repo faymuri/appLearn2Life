@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 const flash = require('connect-flash');
 const session = require('express-session');
 const passport = require('passport');
-
+const bodyParser = require('body-parser');
 
 // Initialization
 
@@ -32,7 +32,7 @@ app.set('view engine', '.hbs');
 // Middlewares
 
 app.use(morgan('dev'));
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 app.use(session({
     secret: 'secret',

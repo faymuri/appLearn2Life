@@ -12,8 +12,9 @@ usersCtrl.renderSignupForm = (req, res) => {
 
 
 usersCtrl.signup = async (req, res) => {
+
     const errors = [];
-    const {email, name, password, confirm_password, documentId, role, institutionCode, institutionId} = req.body;
+    const {email, name, password, confirm_password, documentId, role, institutionCode, institutionId} = req.body;   
     if (password != confirm_password) {
         errors.push ({text: 'contraseñas no coinciden'});
     };
@@ -28,21 +29,23 @@ usersCtrl.signup = async (req, res) => {
         });
     } else {
         const emailUser = await User.findOne({email: email}).lean();
+        console.log (emailUser); 
         if (emailUser) {
             req.flash('error_msg', 'El email ingresado ya esta en uso');
             res.redirect('/users/signup');
-        
 
         } else {
 
-            const checkCode = await Institution.find({institutionCode: institutionCode}).lean();
-            if (checkCode){      
+            //if (checkCode){ 
+   
             const newUser = new User({email, name, password, documentId, role, institutionCode, institutionId});
-            institutionId = await Institution.find({_id});
+            const institution = await Institution.find({institutionCode: institutionCode},{"_id": 1});
+            newUser.institutionId = (institution);
             newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
+            console.log (newUser, institution);
             req.flash('success_msg', 'El usuario ha sido registrado exitosamente')
-            res.redirect('/users/signin')};
+            res.redirect('/users/signin');
         };
     };
 };

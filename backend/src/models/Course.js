@@ -18,4 +18,6 @@ const CourseSchema = new Schema({
     timestamps: true
 });
 
+
+
 module.exports = model('Course', CourseSchema);
