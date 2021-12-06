@@ -3,7 +3,7 @@
         <div class="container-fluid" id="">
             <a class="navbar-brand" href="/">Learn2life</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
-                aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -23,17 +23,16 @@
                             Gestion Educativa
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown" id="item-2">
-                            <a class="dropdown-item" href="/groups/add">Grupo</a>
-                            <a class="dropdown-item" href="/courses/add">Curso</a>
+                            <a class="dropdown-item" href="/groups/">Grupo</a>
+                            <a class="dropdown-item" href="/courses">Curso</a>
                             <a class="dropdown-item" href="/">Activiades</a>
                             <a class="dropdown-item" href="/assignments">Evidencias</a>
-                            <a class="dropdown-item" href="/assignments/add">Agregar Evidencia</a>
-                            <a class="dropdown-item" href="/users/logout">Cerrar session</a>
+                            <a class="dropdown-item" href="/users/logout">Cerrar sesión</a>
                         </div>
                     </li>
                     {{else}}
                     <li class="nav-item">
-                        <a href="/users/signin" class="nav-link">Iniciar Session</a>
+                        <a href="/users/signin" class="nav-link">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
                         <a href="/users/signup" class="nav-link">Registrarse</a>

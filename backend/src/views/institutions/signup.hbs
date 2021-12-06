@@ -1,34 +1,48 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-md-4 mx-auto">
-      <div class="card">
-        <div class="card-header text-center">
-          Registrar institución
-        </div>
-        <div class="card-body">
+<section class="h-100 user-form" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="https://images.pexels.com/photos/3184423/pexels-photo-3184423.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                alt="Sample photo"
+                class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"
+              />
+            </div>
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase mt-5">Registrar institución</h3>
           <form action="/institutions/signup" method="POST">
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" placeholder="Email institución" value="{{email}}"
-                autofocus>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="name" placeholder="Nombre institucón" value="{{name}}">
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="documentId" placeholder="Documento de identidad" value="">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="password" placeholder="contraseña">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="confirm_password" placeholder="confirmar contraseña">
-            </div>
-            <button class="btn btn-primary btn-block">
-              Registrar
-            </button>
-          </form>
+              <div class="row">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="email" class="form-control" name="email" placeholder="Email institución" value="{{email}}">
+                </div>
+                <div class="form-outline mb-4">
+                   <input type="text" class="form-control" name="name" placeholder="Nombre de institución" value="{{name}}">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" class="form-control" name="documentId" placeholder="Documento de identidad" value="">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" class="form-control" name="password" placeholder="contraseña" value="">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" class="form-control" name="confirm_password" placeholder="confirmar contraseña" value="">
+                </div>
+                <div class="text-center button-form-institution">
+                  <button type="reset" class="btn btn-light btn-lg">Reset</button>
+                  <button type="submit" class="btn btn-warning2 btn-lg ms-2">Registrar</button>
+                </div>
+              </div>
+            </form>
+           </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
