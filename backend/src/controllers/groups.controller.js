@@ -22,6 +22,7 @@ groupsCtrl.createNewGroup = async (req, res) => {
 groupsCtrl.renderGroups = async (req, res) => {
     const groups = await Groups.find().sort({ createdAt: 'desc' }).sort({ updatedAt: 'asc' }).lean();
     res.render('groups/all-groups', { groups });
+    //ramdon  comment added
 };
 
 groupsCtrl.renderEditForm = async (req, res) => {
