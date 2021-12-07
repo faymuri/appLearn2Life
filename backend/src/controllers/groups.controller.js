@@ -1,16 +1,18 @@
 const groupsCtrl = {};
 
+
 const Group = require('../models/Group');
+const User = require('../models/User');
 
 
-groupsCtrl.renderGroupForm =  (req, res) => {
+groupsCtrl.renderGroupForm = (req, res) => {
     res.render('groups/new-group');
 };
 
 groupsCtrl.createNewGroup = async (req, res) => {
-    const {title, description, institutionId, userId} = req.body;
-    const newGroup = new Group({title, description, institutionId, userId});
-    newGroup.institutionId =req.user.institutionId;
+    const { title, description, institutionId, userId } = req.body;
+    const newGroup = new Group({ title, description, institutionId, userId });
+    newGroup.institutionId = req.user.institutionId;
     newGroup.userId = req.user.id;
     await newGroup.save();
     req.flash('success_msg', 'Grupo Agregado Satisfactoriamente');
@@ -18,11 +20,15 @@ groupsCtrl.createNewGroup = async (req, res) => {
 };
 
 groupsCtrl.renderGroups = async (req, res) => {
-    const groups = await Group.find({userId: req.user.id, institutionId: req.user.institutionId}).lean();
+    const groups = await Group.find({ userId: req.user.id, institutionId: req.user.institutionId }).lean();
+    //const roleProfesor = await User.findById({_id: req.user.id}, {role: 1, _id: 0}).lean();
+    //if (roleProfesor)
+    // const role = req.user.role
     res.render('groups/all-groups', { groups });
+
 };
 
-groupsCtrl.renderEditForm =  async (req, res) => {
+groupsCtrl.renderEditForm = async (req, res) => {
     const group = await Group.findById(req.params.id).lean();
     if (group.userId != req.user.id && group.institutionId != req.user.institutionId) {
         req.flash('error_msg', 'Acceso no autorizado');
@@ -33,7 +39,7 @@ groupsCtrl.renderEditForm =  async (req, res) => {
 
 groupsCtrl.updateGroup = async (req, res) => {
     const { title, description } = req.body;
-    await Group.findByIdAndUpdate(req.params.id, {title, description}).lean();
+    await Group.findByIdAndUpdate(req.params.id, { title, description }).lean();
     req.flash('success_msg', 'Grupo Actualizado Satisfactoriamente');
     res.redirect('/groups');
 };
@@ -43,5 +49,6 @@ groupsCtrl.deleteGroup = async (req, res) => {
     req.flash('success_msg', 'Grupo Eliminado Satisfactoriamente');
     res.redirect('/groups');
 };
+
 
 module.exports = groupsCtrl;

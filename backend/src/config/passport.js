@@ -10,6 +10,8 @@ passport.use('login', new LocalStrategy({
 }, async (email, password, done) => {
     
     const user = await User.findOne({email});
+
+
     if (!user) {
         return done(null, false, {message: 'Email no encontrado'});
     } else {
@@ -24,7 +26,7 @@ passport.use('login', new LocalStrategy({
 }));
 
 passport.serializeUser((user, done) => {
-    done(null, user.id, user.institutionId);
+    done(null, user);
 });
 
 
@@ -34,6 +36,8 @@ passport.deserializeUser((id, done) =>{
         done(err, user);
     });
 });
+
+
 
 passport.use('loginAdmin', new LocalStrategy({
     usernameField: 'email',
@@ -64,3 +68,4 @@ passport.deserializeUser((id, done) =>{
         done(err, user);
     });
 });
+
