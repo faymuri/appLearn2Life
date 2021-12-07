@@ -18,9 +18,7 @@ const AssignmentSchema = new Schema({
 
     dateFinal: {type: Date},
 
-    courseId: {
-        type: String,
-    },
+    courseId: [{}],
 
 
 }, {

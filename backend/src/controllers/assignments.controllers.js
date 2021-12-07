@@ -6,7 +6,9 @@ const User = require('../models/User');
 
 assignmentsCtrl.renderAssignmentForm =  (req, res) => {
     const courseId = req.params.id;
-    res.render('assignments/new-assignment', {courseId});
+    console.log(courseId);
+    res.render('assignments/new-assignment:', {courseId});
+    console.log({courseId});
 };
 
 assignmentsCtrl.createNewAssignment = async (req, res) => {
@@ -28,10 +30,10 @@ assignmentsCtrl.renderAssignments = async (req, res) => {
     const roleProfesor = await User.findById({_id: req.user.id}, {role: 1, _id: 0}).lean();
     if (roleProfesor.role == "profesor"){
         const roleInterface = true;
-        res.render('assignments/all-courses', { courseId, assignments, roleInterface});
+        res.render('assignments/all-assignments', { courseId, assignments, roleInterface});
     } else {
         const roleInterface = false;
-        res.render('assignments/all-courses', { courseId, assignments, roleInterface});
+        res.render('assignments/all-assignments', { courseId, assignments, roleInterface});
     };
 };
 
