@@ -12,7 +12,7 @@ const CourseSchema = new Schema({
         required: true
     },
 
-    user: {type: String},
+    groupId: {type: String},
 
 }, {
     timestamps: true
