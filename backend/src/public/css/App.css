@@ -399,14 +399,7 @@ body {
 .card button{
     margin-top: 10px;
 }
-
-.cards-groups{
-    background:white;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    border:none !important;
-    margin-bottom: 30px;
-}
-
+ 
 .cards{
     box-shadow: 1px 1px 1px 1px grey;
 }
@@ -429,7 +422,7 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 }
 
 .edit-groups{
-    height: 500px;
+    height: 400px;
 }
 
 .cards-groups input{
@@ -446,7 +439,6 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
 .cards-course{
     background:white;
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    border:none !important;
     margin-bottom: 30px;
 }
 
@@ -458,13 +450,6 @@ background: linear-gradient(to right, #434343, #000000); /* W3C, IE 10+/ Edge, F
     border:none !important;
 }
 
-.card-header-course{
-    background: #f12711;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #f5af19, #f12711);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #f5af19, #f12711); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    color: white;
-
-}
 
 .admin-card1 {
     width: 260px;
@@ -580,4 +565,8 @@ h2 {
 .course-text a{
     text-decoration: none !important;
     color: green;
+}
+
+.card-course-text{
+    margin-bottom: 150px;
 }
