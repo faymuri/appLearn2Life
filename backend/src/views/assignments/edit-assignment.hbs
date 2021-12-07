@@ -6,13 +6,13 @@
             <h3>Edit Assignment</h3>
         </div>
         <div class="card-body">
-            <form action="/assignments/edit/{{assignment._id}}?_method=PUT" method="POST">
+            <form action="/course/edit/{{course._id}}?_method=PUT" method="POST">
                 <input type="hidden" name="_method" value="PUT">
                 <div class="form-group">
-                    <input type="text" name="title" class="form-control" value="{{assignment.title}} ">
+                    <input type="text" name="title" class="form-control" value="{{course.title}} ">
                 </div>
                 <div class="form-group">
-                    <textarea name="description" class="form-control"  >{{assignment.description}}</textarea>
+                    <textarea name="description" class="form-control"  >{{course.description}}</textarea>
                 </div>
                 <div class="form-group">
                     <button class="btn btn-primary btn-block" type="submit">Save</button>

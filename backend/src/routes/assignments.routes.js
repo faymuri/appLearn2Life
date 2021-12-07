@@ -17,7 +17,7 @@ router.route('/assignments/new-assignment')
 
 // Get all assignments
 
-router.route('/assignments')
+router.route('/assignments/:id')
     .get(isAuthenticated, renderAssignments);
 
 

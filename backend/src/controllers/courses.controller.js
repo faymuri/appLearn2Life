@@ -24,16 +24,17 @@ coursesCtrl.renderCourses = async (req, res) => {
 
 coursesCtrl.renderEditForm =  async (req, res) => {
     const course = await Course.findById(req.params.id).lean();
-    if (course.user != req.user.id) {
-        req.flash('error_msg', 'Acceso no autorizado');
-        return res.redirect('/courses');
-    };
+    console.log(course);
+    //if (course.user != req.user.id) {
+    //    req.flash('error_msg', 'Acceso no autorizado');
+    //    return res.redirect('/courses');
+    //};
     res.render('courses/edit-course', { course });
 };
 
 coursesCtrl.updateCourse = async (req, res) => {
-    const { title, description } = req.body;
-    await Course.findByIdAndUpdate(req.params.id, {title, description}).lean();
+    const { title, description, courseId } = req.body;
+    await Course.findByIdAndUpdate(req.params.id, {title, description, courseId}).lean();
     req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
     res.redirect('/courses');
 };

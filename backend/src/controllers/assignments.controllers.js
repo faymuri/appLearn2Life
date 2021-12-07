@@ -13,20 +13,20 @@ assignmentsCtrl.createNewAssignment = async (req, res) => {
     newAssignment.user = req.user.id;
     await newAssignment.save();
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/assignments/:id');
 };
 
 assignmentsCtrl.renderAssignments = async (req, res) => {
-    const assignments = await Assignment.find({user: req.user.id}).sort({createdAt: 'desc'}).sort({updatedAt: 'asc'}).lean();
+    const assignments = await Assignment.find({courseId: req.params.id}).lean();
     res.render('assignments/all-assignments', { assignments });
 };
 
 assignmentsCtrl.renderEditForm =  async (req, res) => {
     const assignment = await Assignment.findById(req.params.id).lean();
-    if (assignment.user != req.user.id) {
-        req.flash('error_msg', 'Acceso no autorizado');
-        return res.redirect('/assignments');
-    };
+    //if (assignment.user != req.params.id) {
+    //    req.flash('error_msg', 'Acceso no autorizado');
+    //    return res.redirect('/assignments');
+    //};
     res.render('assignments/edit-assignment', { assignment });
 };
 
