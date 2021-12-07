@@ -1,12 +1,19 @@
-<div class="custom-card">
-    <div class="container py-5">
+   <div class="container py-5">
+        {{#each courses}}
+                        <h4 class="card-title d-flex justify-content-between align-items-center"> <a
+                                href="/courses/add/{{groupId}}"><i class="fas fa-plus-circle plus-icon"></i>Agregar nuevo curso</a> 
+                        </h4>
+            {{/each}}
+       <h2 class="text-center mb-5 font-weight-bold">Cursos</h2>
         <div class="row">
             {{#each courses}}
             <div class="col-md-3">
-                <div class="card">
-                    <div class="card-body">
+                <div class="card cards-groups">
+                    <div class="card-header">
                         <h4 class="card-title d-flex justify-content-between align-items-center">{{title}} <a
                                 href="/courses/edit/{{_id}}"><i class="fas fa-edit"></i></a> </h4>
+                        </div>
+                    <div class="card-body">
                         <p>{{description}} </p>
                         <form action="/courses/delete/{{_id}}?_method=DELETE" method="POST">
                             <input type="hidden" name="_method" value="DELETE">
@@ -16,6 +23,7 @@
                             <h4 class="card-title d-flex justify-content-between align-items-center"> <a
                                     href="/assignments/{{_id}}"><i class="fas fa-edit"></i></a> </h4>
                         </form>
+<<<<<<< HEAD
                     </div>
                 </div>
             </div>
@@ -27,10 +35,12 @@
                         <h4 class="card-title d-flex justify-content-between align-items-center"> <a
                                 href="/courses/add/{{groupId}}"><i class="fas fa-edit"></i></a> </h4>
 
+=======
+                        </div>
+>>>>>>> 7a34e5e695cefe3932d5ff5b6b2f8f87c8868092
                     </div>
                 </div>
             </div>
       
         </div>
-        <div>
-        </div>
+    <div>

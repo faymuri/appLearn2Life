@@ -1,4 +1,5 @@
 <div class="custom-card">
+<<<<<<< HEAD
 <div class="container py-5">
 <div class="col-md-4 mx-auto">
     <div class="card text-center  cards-course">
@@ -12,6 +13,14 @@
                 </div>
                 <div class="form-group">
                     <textarea name="description" placeholder="Descripción" class="form-control mt-4 " rows='5'></textarea>
+=======
+    <div class="container py-5">
+        <div class="col-md-4 mx-auto">
+            {{#each groupId}}
+            <div class="card text-center">
+                <div class="card-header">
+                    <h3>Nuevo Curso</h3>
+>>>>>>> 7a34e5e695cefe3932d5ff5b6b2f8f87c8868092
                 </div>
                 <div class="card-body">
                     <form action="/courses/new-course/{{groupId}}" method="POST">
