@@ -6,9 +6,9 @@ const GroupSchema = new Schema({
 
     description: {type: String, required: true},
 
-    institutionId: [{}],
+    institutionId: [{type: Object, required: true}],
 
-    userId: [{}],
+    userId: [{type: Object, required: true}],
     
 }, {
     timestamps: true
