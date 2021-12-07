@@ -21,11 +21,17 @@ groupsCtrl.createNewGroup = async (req, res) => {
 
 groupsCtrl.renderGroups = async (req, res) => {
     const groups = await Group.find({ userId: req.user.id, institutionId: req.user.institutionId }).lean();
-    //const roleProfesor = await User.findById({_id: req.user.id}, {role: 1, _id: 0}).lean();
-    //if (roleProfesor)
-    // const role = req.user.role
-    res.render('groups/all-groups', { groups });
-
+    const roleProfesor = await User.findById({_id: req.user.id}, {role: 1, _id: 0}).lean();
+    console.log(roleProfesor);
+    if (roleProfesor.role == "profesor"){
+        const roleInterface = true;
+        console.log(roleInterface);
+        res.render('groups/all-groups', { groups, roleInterface });
+    } else {
+        const roleInterface = false;
+        console.log(roleInterface);
+        res.render('groups/all-groups', { groups, roleInterface });
+    };
 };
 
 groupsCtrl.renderEditForm = async (req, res) => {

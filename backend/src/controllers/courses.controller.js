@@ -2,12 +2,13 @@ const coursesCtrl = {};
 
 const Course = require('../models/Course');
 const Group = require('../models/Group');
+const User = require('../models/User');
 
 
 
 
 coursesCtrl.renderCourseForm =  async (req, res) => {
-    const groupId = await Group.find({_id: req.params.id}, {_id: 1}).lean();
+    const groupId = req.params.id;
     console.log({groupId});
     res.render('courses/new-course', {groupId});
     console.log({groupId});
@@ -18,21 +19,26 @@ coursesCtrl.renderCourseForm =  async (req, res) => {
 coursesCtrl.createNewCourse = async (req, res) => {
     const {title, description, groupId} = req.body;
     const newCourse = new Course({title, description, groupId});
-    newCourse.groupId = await Group.find({_id: req.params.id}, {_id: 1}).lean();
-    console.log(newCourse.groupId);
-    console.log(newCourse);
+    newCourse.groupId = req.params.id;
     await newCourse.save();
-    req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/courses/:id');
+    const courses = await Course.find({groupId: req.params.id}).lean()
+    req.flash('success_msg', 'Curso Creado Satisfactoriamente');
+    res.render('courses/all-courses', { groupId, courses });
     console.log(groupId, newCourse);
-
 };
 
 coursesCtrl.renderCourses = async (req, res) => {
 
     const groupId = req.params.id;
     const courses = await Course.find({groupId: groupId}).lean();
-    res.render('courses/all-courses', { groupId, courses });
+    const roleProfesor = await User.findById({_id: req.user.id}, {role: 1, _id: 0}).lean();
+    if (roleProfesor.role == "profesor"){
+        const roleInterface = true;
+        res.render('courses/all-courses', { groupId, courses, roleInterface});
+    } else {
+        const roleInterface = false;
+        res.render('courses/all-courses', { groupId, courses, roleInterface});
+    };
 };
 
 coursesCtrl.renderEditForm =  async (req, res) => {
@@ -45,16 +51,24 @@ coursesCtrl.renderEditForm =  async (req, res) => {
 };
 
 coursesCtrl.updateCourse = async (req, res) => {
-    const { title, description, courseId } = req.body;
-    await Course.findByIdAndUpdate(req.params.id, {title, description, courseId}).lean();
-    req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
-    res.redirect('/courses');
+    const { title, description} = req.body;
+    await Course.findByIdAndUpdate(req.params.id, {title, description}).lean();
+    const courses = await Course.find({groupId: req.params.id}).lean()
+    console.log(Course, courses);
+    req.flash('success_msg', 'Curso Actualizado Satisfactoriamente');
+    res.redirect('/groups/');
+    res.render('courses/all-courses', { Course, courses });
+    console.log(Course, courses);
 };
 
 coursesCtrl.deleteCourse = async (req, res) => {
     await Course.findByIdAndDelete(req.params.id);
-    req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
-    res.redirect('/courses');
+    const courses = await Course.find({groupId: req.params.id}).lean()
+    console.log(Course, courses);
+    req.flash('success_msg', 'Curso Eliminado Satisfactoriamente');
+    res.redirect('/groups/');
+    next();
+    res.render('courses/all-courses', { Course, courses });
 };
 
 module.exports = coursesCtrl;

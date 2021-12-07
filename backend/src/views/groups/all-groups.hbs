@@ -1,7 +1,7 @@
-
 <div class="container py-5">
     <h2 class="text-center mb-5 font-weight-bold">Grupos</h2>
     <div class="row">
+        {{#if roleInterface}}
         {{#each groups}}
         <div class="col-md-3">
             <div class="card cards-groups">
@@ -19,11 +19,35 @@
                     </form>
                     <form class="redirect-text">
                         <h2 class="card-title d-flex justify-content-between align-items-center fw-bold mt-2"><a
-                                href="/courses/{{_id}}"><i class="fas fa-directions redirect-icon"></i>Ir a este curso</a> </h2>
+                                href="/courses/{{_id}}"><i class="fas fa-directions redirect-icon"></i>Ir a este
+                                curso</a> </h2>
                     </form>
                 </div>
             </div>
         </div>
         {{/each}}
+
+        {{else}}
+        {{#each groups}}
+        <div class="col-md-3">
+            <div class="card cards-groups">
+                <div class="card-header">
+                    <h4 class="card-title d-flex justify-content-between align-items-center fw-bold">{{title}} </h4>
+                </div>
+                <div class="card-body">
+                    <div class="card-body">
+                        <p>{{description}} </p>
+                    </div>
+                    <form class="redirect-text">
+                        <h2 class="card-title d-flex justify-content-between align-items-center fw-bold mt-2"><a
+                                href="/courses/{{_id}}"><i class="fas fa-directions redirect-icon"></i>Ir a este
+                                curso</a> </h2>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {{/each}}
+        {{/if}}
+
     </div>
 </div>
