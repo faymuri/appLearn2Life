@@ -20,7 +20,6 @@ const AssignmentSchema = new Schema({
 
     courseId: {
         type: String,
-        required: true
     },
 
 

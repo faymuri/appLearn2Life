@@ -1,24 +1,38 @@
 const assignmentsCtrl = {};
 
 const Assignment = require('../models/Assignment');
+const User = require('../models/User');
 
 
 assignmentsCtrl.renderAssignmentForm =  (req, res) => {
-    res.render('assignments/new-assignment');
+    const courseId = req.params.id;
+    res.render('assignments/new-assignment', {courseId});
 };
 
 assignmentsCtrl.createNewAssignment = async (req, res) => {
-    const {title, description} = req.body;
-    const newAssignment = new Assignment({title, description});
-    newAssignment.user = req.user.id;
+    const {title, description, file, dateFinal, courseId} = req.body;
+    const newAssignment = new Assignment({title, description, file, dateFinal, courseId});
+    newAssignment.courseId = req.params.id;
     await newAssignment.save();
-    req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/assignments/:id');
+    
+    const assignments = await Assignment.find({courseId: req.params.id}).lean()
+    req.flash('success_msg', 'Actividad Creada Satisfactoriamente');
+    res.render('assignments/all-assignments', { courseId, assignments });
+    console.log(courseId, newAssignment);
 };
 
 assignmentsCtrl.renderAssignments = async (req, res) => {
+    const courseId = req.params.id;
     const assignments = await Assignment.find({courseId: req.params.id}).lean();
     res.render('assignments/all-assignments', { assignments });
+    const roleProfesor = await User.findById({_id: req.user.id}, {role: 1, _id: 0}).lean();
+    if (roleProfesor.role == "profesor"){
+        const roleInterface = true;
+        res.render('assignments/all-courses', { courseId, assignments, roleInterface});
+    } else {
+        const roleInterface = false;
+        res.render('assignments/all-courses', { courseId, assignments, roleInterface});
+    };
 };
 
 assignmentsCtrl.renderEditForm =  async (req, res) => {
@@ -31,16 +45,21 @@ assignmentsCtrl.renderEditForm =  async (req, res) => {
 };
 
 assignmentsCtrl.updateAssignment = async (req, res) => {
-    const { title, description } = req.body;
-    await Assignment.findByIdAndUpdate(req.params.id, {title, description}).lean();
+    const { title, description, file, dateFinal} = req.body;
+    await Assignment.findByIdAndUpdate(req.params.id, {title, description, file, dateFinal}).lean();
+    const assignments = await Assignment.find({courseId: req.params.id}).lean()
     req.flash('success_msg', 'Actividad Actualizada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/groups/');
+    res.render('assignments/all-assignments', { Assignment, assignments });
 };
 
 assignmentsCtrl.deleteAssignment = async (req, res) => {
     await Assignment.findByIdAndDelete(req.params.id);
+    const assignments = await Assignment.find({courseId: req.params.id}).lean()
     req.flash('success_msg', 'Actividad Eliminada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/groups/');
+    next();
+    res.render('assignments/all-assignments', { Assignment, assignments });
 };
 
 module.exports = assignmentsCtrl;

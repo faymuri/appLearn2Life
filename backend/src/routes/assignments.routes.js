@@ -8,10 +8,10 @@ const {isAuthenticated} = require('../helpers/validateauth');
 
 // New assignments
 
-router.route('/assignments/add')
+router.route('/assignments/add/:id')
     .get(isAuthenticated, renderAssignmentForm);
 
-router.route('/assignments/new-assignment')
+router.route('/assignments/new-assignment:id')
     .post(isAuthenticated, createNewAssignment);
 
 
