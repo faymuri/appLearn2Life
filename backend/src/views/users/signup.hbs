@@ -1,43 +1,60 @@
-<div class="container py-5">
-  <div class="row">
-    <div class="col-md-4 mx-auto">
-      <div class="card">
-        <div class="card-header text-center">
-          Registrar Usuario
-        </div>
-        <div class="card-body">
-          <form action="/users/signup" method="POST">
-            <div class="form-group">
-              <input type="email" class="form-control" name="email" placeholder="Email institución" value="{{email}}"
-                autofocus>
+<section class="h-100 user-form" >
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col">
+        <div class="card card-registration my-4">
+          <div class="row g-0">
+            <div class="col-xl-6 d-none d-xl-block">
+              <img
+                src="https://mdbootstrap.com/img/Photos/new-templates/bootstrap-registration/img4.jpg"
+                alt="Sample photo"
+                class="img-fluid"
+                style="border-top-left-radius: .25rem; border-bottom-left-radius: .25rem;"
+              />
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="name" placeholder="Nombre Completo" value="{{name}}">
+            <div class="col-xl-6">
+              <div class="card-body p-md-5 text-black">
+                <h3 class="mb-5 text-uppercase mt-5">Registrar</h3>
+              <form action="/users/signup" method="POST">
+                <div class="row">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="email" class="form-control" name="email" placeholder="Email institución" value="{{email}}">
+                </div>
+                <div class="form-outline mb-4">
+                   <input type="text" class="form-control" name="name" placeholder="Nombre Completo" value="{{name}}">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="text" class="form-control" name="documentId" placeholder="Documento de identidad" value="">
+                </div>
+                <div class="row">
+                 <div class="col-md-6 mb-4">
+                    <select name="role" class="select">
+                      <option value="ty">Seleccione tipo de usuario</option>
+                      <option value="profesor">Profesor</option>
+                      <option value="estudiante">Estudiante</option>
+                    </select>
+                  </div>
+                  </div>
+                  <div class="form-outline mb-4">
+                  <input type="text" class="form-control" name="institutionCode" placeholder="Código de institución" value="">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" class="form-control" name="password" placeholder="contraseña" value="">
+                </div>
+                <div class="form-outline mb-4">
+                  <input type="password" class="form-control" name="confirm_password" placeholder="confirmar contraseña" value="">
+                </div>
+                <div class="text-center button-form-user">
+                  <button type="reset" class="btn btn-light btn-lg">Reset</button>
+                  <button type="" class="btn btn-warning btn-lg ms-2">Registrar</button>
+                </div>
+                </div>
+             </form>   
             </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="documentId" placeholder="Documento de identidad" value="">
-            </div>
-            <div class="form-group">
-              <label class="mr-3">Seleccione tipo de usuario</label>
-                <select name="role" value="" class="mb-3">
-                  <option value="profesor">Profesor</option>
-                  <option value="estudiante">Estudiante</option>
-            </div>
-            <div class="form-group">
-              <input type="text" class="form-control" name="institutionCode" placeholder="Codigo de institución" value="">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="password" placeholder="contraseña">
-            </div>
-            <div class="form-group">
-              <input type="password" class="form-control" name="confirm_password" placeholder="confirmar contraseña">
-            </div>
-            <button class="btn btn-primary btn-block">
-              Registrar
-            </button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

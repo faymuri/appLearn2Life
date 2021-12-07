@@ -16,10 +16,10 @@ usersCtrl.signup = async (req, res) => {
     const errors = [];
     const {email, name, password, confirm_password, documentId, role, institutionCode, institutionId} = req.body;   
     if (password != confirm_password) {
-        errors.push ({text: 'contraseñas no coinciden'});
+        errors.push({ text: 'contraseñas no coinciden' });
     };
     if (password.length < 8) {
-        errors.push ({text: 'Contraseña debe tener almenos 8 caracteres'});
+        errors.push({ text: 'Contraseña debe tener almenos 8 caracteres' });
     };
     if (errors.length > 0) {
         res.render('users/signup', {

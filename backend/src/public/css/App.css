@@ -1,190 +1,129 @@
-*{
+* {
     box-sizing: border-box;
-    margin:0;
-    padding:0;
-    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    font-family: 'Lato', sans-serif;
     font-size: 16px;
 }
 
-.form-user{
+.form-user {
     max-width: 330px;
     padding: 30px;
-    color:black;
+    color: black;
     border-radius: 10px;
-    background: #00B4DB;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #00B4DB;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     box-shadow: black 1px 1px 5px;
     border: none;
     outline: none;
-
-
 }
 
-
-.btn1{
+.btn1 {
     opacity: 0.6;
     transition: 0.3s;
     background: white;
     color: black !important;
-    font-weight:bold !important;
+    font-weight: bold !important;
 }
 
-.btn1:hover{
-    background: #76b852;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8DC26F, #76b852);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8DC26F, #76b852); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+.btn1:hover {
+    background: #76b852;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8DC26F, #76b852);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8DC26F, #76b852);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     opacity: 0.7;
-
 }
 
-.log-img{
+.log-img {
     width: 100px;
     height: 100px;
     border-radius: 50%;
     background: white;
 }
 
-.letra{
+.letra {
     text-decoration: none;
     color: white;
 }
 
-
-::placeholder{
-
-   color:black;
+::placeholder {
+    color: black;
 }
 
-.log-img2{
+.log-img2 {
     width: 135px;
     height: 100px;
     border-radius: 25%;
 }
- 
+
 
 /*----Foooter*/
 
-footer{
+footer {
     width: 100%;
-    
 }
 
-.container-about{
+.container-about {
     min-height: calc(100vh - 100px - 300px);
 }
 
-.footer-logo{
+.footer-logo {
     height: 70px;
     width: 100px;
-}
-
-/**----form*/
-
-
-
-.form-user{
-    max-width: 330px;
-    padding: 30px;
-    color:black;
-    border-radius: 10px;
-    background: #00B4DB;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    box-shadow: black 1px 1px 5px;
-    border: none;
-    outline: none;
-
-
-}
-
-
-.btn1{
-    opacity: 0.6;
-    transition: 0.3s;
-    background: white;
-    color: black !important;
-    font-weight:bold !important;
-}
-
-.btn1:hover{
-    background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #8DC26F, #76b852);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #8DC26F, #76b852); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    opacity: 0.7;
-
-}
-
-.log-img{
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    background: white;
-}
-
-.letra{
-    text-decoration: none;
-    color: white;
-}
-
-
-::placeholder{
-
-   color:black;
-}
-
-.log-img2{
-    width: 135px;
-    height: 100px;
-    border-radius: 25%;
 }
 
 
 /*---- index*/
 
-body{
-    
+body {
     font-family: 'Montserrat', sans-serif;
-    background: #ECE9E6;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #FFFFFF, #ECE9E6); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: #ECE9E6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #FFFFFF, #ECE9E6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #FFFFFF, #ECE9E6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
 
 /**---navbar*/
 
-*{
-
-    margin:0px;
-    padding:0px;
-
+* {
+    margin: 0px;
+    padding: 0px;
 }
 
-.nav-link{
+.nav-link {
+    color: white;
+    font-weight: bold;
+}
+
+.nav-link:hover {
     color: white;
 }
 
-.nav-link:hover{
-    color:white;
-}
-
-.navbar-brand{
+.navbar-brand {
     color: white;
 }
 
-.navbar-brand:hover{
+.navbar-brand:hover {
     color: white;
 }
 
-.navbar{
+.navbar {
     background: rgb(65, 64, 64);
     font-size: 12px;
     padding: 5px;
     font-family: 'Montserrat', sans-serif;
-
 }
 
-#item-1{
+#item-1 {
     color: white;
     border-radius: 5px;
     opacity: 0.9;
@@ -194,50 +133,56 @@ body{
     font: bold;
 }
 
-#item-1:hover{
+#item-1:hover {
     opacity: 0.3s;
-    color: #00B4DB;  /* fallback for old browsers */
-    color: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-    color: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #00B4DB;
+    /* fallback for old browsers */
+    color: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    color: linear-gradient(to right, #0083B0, #00B4DB);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.img{
+.img {
     width: 170px;
-    height:115px;
-    border-radius:2px;
+    height: 115px;
+    border-radius: 2px;
 }
 
-
-#nav-item2{
-
+#nav-item2 {
     font-weight: bold;
     border-radius: 5px;
-    background: #00B4DB;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: #00B4DB;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#nav-item2:active{
+#nav-item2:active {
     font-weight: bold;
-    background: #00B4DB;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background: #00B4DB;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #0083B0, #00B4DB);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #0083B0, #00B4DB);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-.navbar li{
+.navbar li {
     margin: 5px;
 }
 
-.navbar li:hover{
+.navbar li:hover {
     background: #00b4db;
     border-radius: 20px;
 }
 
+
 /*portada*/
 
-.container-portada{
+.container-portada {
     width: 100%;
     height: 550px;
     position: relative;
@@ -246,29 +191,29 @@ body{
     animation: movimiento 10s infinite linear alternate;
 }
 
-@keyframes movimiento{
-    from{
+@keyframes movimiento {
+    from {
         background-position: bottom left;
-    }to{
+    }
+    to {
         background-position: top right;
-
     }
 }
 
-.capa-gradient{
+.capa-gradient {
     width: 100%;
     height: 100%;
     position: absolute;
 }
 
-.container-details{
+.container-details {
     width: 100%;
     max-width: 1200px;
     position: relative;
     margin: auto;
 }
 
-.details{
+.details {
     width: 100%;
     max-width: 500px;
     position: relative;
@@ -277,19 +222,18 @@ body{
     left: 10px;
 }
 
-.details img{
+.details img {
     width: 150px;
     height: 100px;
     position: relative;
-
 }
 
-.details p{
+.details p {
     margin-top: 10px;
     font-size: 10px;
 }
 
-.details button{
+.details button {
     padding: 10px 20px;
     font-size: 16px;
     background: none;
@@ -301,7 +245,7 @@ body{
     cursor: pointer;
 }
 
-.details button:hover{
+.details button:hover {
     background: white;
     color: black;
 }
@@ -309,43 +253,129 @@ body{
 
 /***-about*/
 
-.contenedor{
+.contenedor {
     position: relative;
     text-align: center;
     width: 100%;
     margin-bottom: 50px;
-    background:#D0D3D4 ;
+    background: #D0D3D4;
     font-size: 16px;
     padding: 20px;
 }
 
-
-.texto{
+.texto {
     padding: 20px;
     max-width: 900px;
 }
 
-.texto h1{
-
+.texto h1 {
     font-size: 40px;
     font-weight: bold;
 }
 
-.texto hr{
+.texto hr {
     max-width: 900px;
     height: 4px;
     border-style: none;
-    background: -webkit-linear-gradient(left,black ,#076ac0);
-    
+    background: -webkit-linear-gradient(left, black, #076ac0);
 }
 
-/**----cards**--**/
 
+/**----logins**--**/
 
-
-
-.custom-card{
-    background-color:#0083B0;
-    border-radius:px;
+.login {
+    min-height: 30vh;
 }
 
+#login-form {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background: #4776E6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8E54E9, #4776E6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+#login-form-user {
+    margin-top: 100px;
+    margin-bottom: 100px;
+    background: #FDC830;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F37335, #FDC830);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F37335, #FDC830);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.bg-image-institution {
+    background-image: url('https://image.freepik.com/vector-gratis/personas-que-usan-computadoras-estudian-escuela-linea_1262-20670.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.bg-image-user {
+    background-image: url('https://img.freepik.com/vector-gratis/grupo-estudiantes-viendo-seminario-web-linea_74855-5514.jpg?size=338&ext=jpg');
+    background-position: center;
+    background-size: cover;
+}
+
+.login-heading {
+    font-weight: 300;
+}
+
+.btn-loginn {
+    font-size: 0.9rem;
+    letter-spacing: 0.15rem;
+    padding: 0.75rem 5rem;
+}
+
+.href a {
+    color: white;
+    text-decoration: none;
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+.button-form-user {
+    margin-top: 50px;
+}
+
+.btn-warning {
+    background: #FDC830;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #F37335, #FDC830);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #F37335, #FDC830);
+    text-decoration: none;
+}
+
+.btn-warning2 {
+    background: #4776E6;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #8E54E9, #4776E6);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #8E54E9, #4776E6);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    text-decoration: none;
+}
+
+.user-form {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.button-form-user {
+    padding: 20px;
+    margin: 20px;
+}
