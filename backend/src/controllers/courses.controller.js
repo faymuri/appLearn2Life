@@ -25,16 +25,14 @@ coursesCtrl.createNewCourse = async (req, res) => {
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
     res.redirect('/courses/:id');
     console.log(groupId, newCourse);
-    // comentario
+
 };
 
 coursesCtrl.renderCourses = async (req, res) => {
-    const courses = await Course.find({groupId: req.params.id}).lean();
-    const groupId = await Group.find({_id: req.params.id}, {_id: 1}).lean();
-    console.log(groupId, courses);
-    res.render('courses/all-courses', { groupId, courses });
-    console.log({ groupId, courses });
 
+    const groupId = req.params.id;
+    const courses = await Course.find({groupId: groupId}).lean();
+    res.render('courses/all-courses', { groupId, courses });
 };
 
 coursesCtrl.renderEditForm =  async (req, res) => {
