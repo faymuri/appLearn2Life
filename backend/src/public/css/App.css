@@ -528,3 +528,28 @@ h2 {
     background-color: #647EDF;
     box-shadow: none
 }
+
+.plus-icon{
+    color: rgb(0, 221, 11);
+    font-size: 20px;
+    text-decoration: none !important;
+
+}
+
+.redirect-icon{
+    color: rgb(110, 93, 116);
+}
+
+.redirect-text a{
+    text-decoration: none !important;
+    color: black;
+}
+
+#delete-button{
+    border: none !important;
+    color: rgb(240, 8, 8);
+}
+
+.fa-edit{
+    color: rgb(253, 253, 253);
+}
