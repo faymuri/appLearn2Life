@@ -1,13 +1,14 @@
 const coursesCtrl = {};
 
 const Course = require('../models/Course');
-
+const Group = require('../models/Group');
 
 
 
 
 coursesCtrl.renderCourseForm =  async (req, res) => {
-    const groupId = await Course.find({groupId: req.params.id},{groupId: 1, _id: 0}).lean();
+    const groupId = await Group.find({_id: req.params.id}, {_id: 1}).lean();
+    console.log({groupId});
     res.render('courses/new-course', {groupId});
     console.log({groupId});
 };
@@ -17,7 +18,7 @@ coursesCtrl.renderCourseForm =  async (req, res) => {
 coursesCtrl.createNewCourse = async (req, res) => {
     const {title, description, groupId} = req.body;
     const newCourse = new Course({title, description, groupId});
-    newCourse.groupId = req.params.id;
+    newCourse.groupId = await Group.find({_id: req.params.id}, {_id: 1}).lean();
     console.log(newCourse.groupId);
     console.log(newCourse);
     await newCourse.save();
@@ -29,9 +30,10 @@ coursesCtrl.createNewCourse = async (req, res) => {
 
 coursesCtrl.renderCourses = async (req, res) => {
     const courses = await Course.find({groupId: req.params.id}).lean();
-    const groupId = await Course.find({groupId: req.params.id}, {groupId:1, _id: 0}).lean();
-    //console.log(groupId, courses);
+    const groupId = await Group.find({_id: req.params.id}, {_id: 1}).lean();
+    console.log(groupId, courses);
     res.render('courses/all-courses', { groupId, courses });
+    console.log({ groupId, courses });
 
 };
 
