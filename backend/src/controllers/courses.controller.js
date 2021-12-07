@@ -24,6 +24,7 @@ coursesCtrl.createNewCourse = async (req, res) => {
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
     res.redirect('/courses/:id');
     console.log(groupId, newCourse);
+    // comentario
 };
 
 coursesCtrl.renderCourses = async (req, res) => {
