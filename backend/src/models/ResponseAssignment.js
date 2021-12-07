@@ -7,14 +7,18 @@ const ResponseAssignmentSchema = new Schema({
         required: true
     },
 
+    comment: {
+        type: String,
+    },
+
     assignmentId: {
         type: String,
-        required: true
+
     },
 
     userId: {
         type: String,
-        required: true
+
     },
 
 }, {

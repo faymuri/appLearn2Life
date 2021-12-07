@@ -29,7 +29,6 @@ usersCtrl.signup = async (req, res) => {
         });
     } else {
         const emailUser = await User.findOne({email: email}).lean();
-        console.log (emailUser); 
         if (emailUser) {
             req.flash('error_msg', 'El email ingresado ya esta en uso');
             res.redirect('/users/signup');
@@ -43,7 +42,6 @@ usersCtrl.signup = async (req, res) => {
             newUser.institutionId = (institution);
             newUser.password = await newUser.encryptPassword(password);
             await newUser.save();
-            console.log (newUser, institution);
             req.flash('success_msg', 'El usuario ha sido registrado exitosamente')
             res.redirect('/users/signin');
         };

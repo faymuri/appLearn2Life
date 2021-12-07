@@ -2,7 +2,7 @@ const {Schema, model} = require('mongoose');
 
 
 const CourseSchema = new Schema({
-    name: {
+    title: {
         type: String,
         required: true
     },
@@ -12,7 +12,7 @@ const CourseSchema = new Schema({
         required: true
     },
 
-    user: {type: String},
+    groupId: {type: String},
 
 }, {
     timestamps: true

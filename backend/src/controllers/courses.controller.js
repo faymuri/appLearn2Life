@@ -4,20 +4,21 @@ const Course = require('../models/Course');
 
 
 coursesCtrl.renderCourseForm =  (req, res) => {
-    res.render('Courses/new-course');
+    res.render('courses/new-course');
 };
 
 coursesCtrl.createNewCourse = async (req, res) => {
-    const {title, description} = req.body;
-    const newCourse = new Course({title, description});
-    newCourse.user = req.user.id;
+    const {title, description, groupId} = req.body;
+    const newCourse = new Course({title, description, groupId});
     await newCourse.save();
+    console.log (newCourse, req.params.id);
     req.flash('success_msg', 'Actividad Agregada Satisfactoriamente');
-    res.redirect('/assignments');
+    res.redirect('/courses/:id');
 };
 
 coursesCtrl.renderCourses = async (req, res) => {
-    const courses = await Course.find({user: req.user.id}).sort({createdAt: 'desc'}).sort({updatedAt: 'asc'}).lean();
+    const courses = await Course.find({groupId: req.params.id}).lean();
+    console.log(courses, req.params.id);
     res.render('courses/all-courses', { courses });
 };
 

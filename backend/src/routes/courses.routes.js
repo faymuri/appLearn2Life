@@ -17,7 +17,7 @@ router.route('/courses/new-course')
 
 // Get all assignments
 
-router.route('/courses')
+router.route('/courses/:id')
     .get(isAuthenticated, renderCourses);
 
 // Edit assignments
