@@ -12,7 +12,7 @@ const CourseSchema = new Schema({
         required: true
     },
 
-    groupId: [{}],
+    groupId: {type: String},
 
 }, {
     timestamps: true
