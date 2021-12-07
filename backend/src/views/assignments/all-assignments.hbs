@@ -1,29 +1,34 @@
 <div class="custom-card">
-<div class="container py-5">
-<div class="row">
-    {{#each assignments}}
-    <div class="col-md-3">
-        <div class="card cards-assignment">
-             <div class="card-header">
-                    <h4 class="card-title d-flex justify-content-between align-items-center">{{title}} <a
-                        href="/assignments/edit/{{_id}}"><i class="fas fa-edit"></i></a> </h4>
+    <div class="container py-5">
+        <h4 class="card-title d-flex justify-content-between align-items-center"> <a href="/courses/add/{{groupId}}"><i
+                    class="fas fa-plus-circle plus-icon"></i>Agregar nueva evidencia</a>
+        </h4>
+        <h2 class="text-center mb-5 font-weight-bold">Evidencias</h2>
+        <div class="row">
+            {{#each assignments}}
+            <div class="col-md-3">
+                <div class="card cards-assignment">
+                    <div class="card-header">
+                        <h4 class="card-title d-flex justify-content-between align-items-center">{{title}} <a
+                                href="/assignments/edit/{{_id}}"><i class="fas fa-edit"></i></a> </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-body">
+                            <p>{{description}} </p>
+                            <form action="/assignments/delete/{{_id}}?_method=DELETE" method="POST">
+                        </div>
+                        <input type="datetime-local" class="input-time">
+                        <input type="hidden" name="_method" value="DELETE">
+                        <button type="submit" class="btn btn-danger btn block btn-sm">Delete</button>
+                        </form>
+                        <form class="redirect-text">
+                            <h2 class="card-title d-flex justify-content-between align-items-center fw-bold mt-2"><a
+                                    href="/responseActivity/{{_id}}"><i class="fas fa-directions redirect-icon"></i>Ir responder actividad</a> </h2>
+                        </form>
+                    </div>
                 </div>
-            <div class="card-body">
-                <div class="card-body">
-                <p>{{description}} </p>
-                <form action="/assignments/delete/{{_id}}?_method=DELETE" method="POST">
-                </div>
-                    <input type="datetime-local" class="input-time">
-                    <input type="hidden" name="_method" value="DELETE">
-                    <button type="submit" class="btn btn-danger btn block btn-sm">Delete</button>
-                </form>
-                <form>
-                    <button href="/assignments/edit/{{_id}}" type="submit" class="btn btn-warning btn block btn-sm">Select</button>
-                </form>
             </div>
+            {{/each}}
         </div>
     </div>
-    {{/each}}
-</div>
-</div>
 </div>
