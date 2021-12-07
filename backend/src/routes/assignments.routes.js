@@ -11,7 +11,7 @@ const {isAuthenticated} = require('../helpers/validateauth');
 router.route('/assignments/add/:id')
     .get(isAuthenticated, renderAssignmentForm);
 
-router.route('/assignments/new-assignment:id')
+router.route('/assignments/new-assignment/:id')
     .post(isAuthenticated, createNewAssignment);
 
 

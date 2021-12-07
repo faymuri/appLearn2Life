@@ -6,9 +6,7 @@ const User = require('../models/User');
 
 assignmentsCtrl.renderAssignmentForm =  (req, res) => {
     const courseId = req.params.id;
-    console.log(courseId);
-    res.render('assignments/new-assignment:', {courseId});
-    console.log({courseId});
+    res.render('assignments/new-assignment', {courseId});
 };
 
 assignmentsCtrl.createNewAssignment = async (req, res) => {
@@ -18,15 +16,15 @@ assignmentsCtrl.createNewAssignment = async (req, res) => {
     await newAssignment.save();
     
     const assignments = await Assignment.find({courseId: req.params.id}).lean()
+    console.log(assignments);
     req.flash('success_msg', 'Actividad Creada Satisfactoriamente');
     res.render('assignments/all-assignments', { courseId, assignments });
-    console.log(courseId, newAssignment);
+    console.log(courseId, newAssignment, assignments);
 };
 
 assignmentsCtrl.renderAssignments = async (req, res) => {
     const courseId = req.params.id;
-    const assignments = await Assignment.find({courseId: req.params.id}).lean();
-    res.render('assignments/all-assignments', { assignments });
+    const assignments = await Assignment.find({courseId: courseId}).lean();
     const roleProfesor = await User.findById({_id: req.user.id}, {role: 1, _id: 0}).lean();
     if (roleProfesor.role == "profesor"){
         const roleInterface = true;
