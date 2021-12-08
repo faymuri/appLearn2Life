@@ -7,14 +7,14 @@ const {renderAssignmentForm, createNewAssignment, renderAssignments, renderEditF
 const {isAuthenticated} = require('../helpers/validateauth');
 
 const upload = multer({
-    dest: 'uploads/',
+    dest: '../public/uploads/',
 });
 // New assignments
 
 router.route('/assignments/add/:id')
     .get(isAuthenticated, renderAssignmentForm);
 
-router.route('/assignments/new-assignment/:id' , upload)
+router.route('/assignments/new-assignment/:id' , upload.single('file'))
     .post(isAuthenticated, createNewAssignment);
 
 

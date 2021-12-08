@@ -19,7 +19,7 @@ assignmentsCtrl.createNewAssignment = async (req, res) => {
     console.log(assignments);
     req.flash('success_msg', 'Actividad Creada Satisfactoriamente');
     res.render('assignments/all-assignments', { courseId, assignments });
-    console.log(courseId, newAssignment, assignmentss);
+    console.log(courseId, newAssignment, assignments);
 };
 
 assignmentsCtrl.renderAssignments = async (req, res) => {

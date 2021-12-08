@@ -28,7 +28,7 @@ groupsCtrl.renderGroups = async (req, res) => {
         console.log(roleInterface);
         res.render('groups/all-groups', { groups, roleInterface });
     } else {
-        const roleInterface = false;
+        const roleInterface = true;
         console.log(roleInterface);
         res.render('groups/all-groups', { groups, roleInterface });
     };
