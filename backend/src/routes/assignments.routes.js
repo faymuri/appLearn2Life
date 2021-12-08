@@ -1,17 +1,20 @@
 const {Router} = require('express');
+const multer = require('multer');
 const router = Router();
 
 const {renderAssignmentForm, createNewAssignment, renderAssignments, renderEditForm, updateAssignment, deleteAssignment } = require('../controllers/assignments.controllers');
 
 const {isAuthenticated} = require('../helpers/validateauth');
 
-
+const upload = multer({
+    dest: 'uploads/',
+});
 // New assignments
 
 router.route('/assignments/add/:id')
     .get(isAuthenticated, renderAssignmentForm);
 
-router.route('/assignments/new-assignment/:id')
+router.route('/assignments/new-assignment/:id' , upload)
     .post(isAuthenticated, createNewAssignment);
 
 
